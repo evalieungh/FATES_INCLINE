@@ -2,6 +2,7 @@
 
 ### where do I specify which PFTs to use? Copy Arctic grass 3 times, then modify each copy to best match Sibbaldia procumbens, Veronica officinalis and Succisa pratensis
 ### first change traits/parameters measured in INCLINE. Then, maybe, all others that we know something about!
+### updated parameter file kept here: https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
 
 ## Plant 'height' (INCLINE measurement = , FATES parameters = )
 
