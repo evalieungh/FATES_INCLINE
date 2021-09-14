@@ -1,0 +1,14 @@
+# script to change parameter files before simulations
+
+### where do I specify which PFTs to use? Copy Arctic grass 3 times, then modify each copy to best match Sibbaldia procumbens, Veronica officinalis and Succisa pratensis
+### first change traits/parameters measured in INCLINE. Then, maybe, all others that we know something about!
+
+## Plant 'height' (INCLINE measurement = , FATES parameters = )
+
+## Biomass
+
+# Seeds
+
+## fates_seed_alloc : fraction of available carbon balance allocated to seeds 
+
+## fates_seed_suppl : Supplemental external seed rain source term (non-mass conserving) 
