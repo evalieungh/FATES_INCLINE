@@ -2,6 +2,7 @@
 
 ### 
 ### using the EMERALD-FATES-platform (see ...)
+### look here for code inspiration: https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
 
 ## create new case
 
