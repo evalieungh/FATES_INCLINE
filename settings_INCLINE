@@ -1,0 +1,31 @@
+# model run settings
+## copied from NorESM_LandSites_Platform/landsites_tools/settings.txt  on the 15.09.2021
+## settings for my INCLINE model runs
+
+[path]
+dir_cases = ~/ctsm_cases # cases root folder
+dir_input = ~/input      # input root folder
+dir_output = ~/output    # output root folder
+
+[run]
+start_time = 2000-01-01 00:00 # yyyy-mm-dd hh:mm
+end_time = 2100-12-31 00:00   # yyyy-mm-dd hh:mm
+sites2run = ALP1, ALP4        # data/sites.json
+type_run = startup            # startup, hybrid, branch, restart
+type_model = CLM-SP           # CLM-SP, CLM-BGC, CLM-FATES, FATES-SP, FATES-nocomp, FATES-hydro -------------------- change this!
+initial_file =                # initial conditions (empty: cold start) ------------ change this! maybe do hybrid or restart run? what is the difference?
+frequency_output = monthly      # monthly, daily, hourly
+variables_output = H2OSOI, H2OSNO  # https://www.cesm.ucar.edu/models/cesm1.2/clm/models/lnd/clm/doc/UsersGuide/history_fields_table_40.xhtml
+
+## relevant output variables from CLM
+### AGNPP 	aboveground NPP
+### ANNAVG_T2M 	annual average 2m air temperature
+###
+
+[postprocess]
+variables_plot = H2OSOI, H2OSNO
+frequency_plot = daily
+
+[future]
+vegetation_types_FATES =  # to be implemented
+output_groups =           # to be implemented
