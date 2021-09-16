@@ -5,7 +5,6 @@
 ### look here for code inspiration: https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
 
 # 1. Input data
-
 ### import data from shared files.
 https://zenodo.org/record/4108341/files/inputdata_version2.0.0_ALP1.tar
 
@@ -26,6 +25,16 @@ cd $HOME/ctsm_cases/fates_alp1
 
 ## case submit
 ./case.submit
+
+cd $HOME/work/fates_alp1
+ls -la
+### bld: contains object and CESM executable (called cesm.exe) for the run configuration
+### run: used during the run to generate output files, etc.
+### Once the run is terminated, many files are moved from the run folder to the archive folder
+
+cd $HOME/archive/fates_alp1
+ls lnd/hist
+### the relevant output is in “history” files. These files are located in lnd/hist folder
 
 # 3. Analysing output
 ### output from the model run comes in netCDF format, which can be read e.g. by Panoply.
