@@ -40,3 +40,14 @@ ls lnd/hist
 ### output from the model run comes in netCDF format, which can be read e.g. by Panoply.
 ### we are interested in how well the different PFTs performed in out simulation.
 ### some relevant output variable to look at are ...
+
+import xarray as xr
+xr.set_options(display_style="html")
+%matplotlib inline
+
+case = 'fates_alp1' # change case names here
+path = os.path.join(os.getenv('HOME'), 'archive', case, 'lnd', 'hist')
+dset = xr.open_mfdataset(path + '/*.nc', combine='by_coords')
+dset
+
+dset['AREA_TREES'].plot(aspect=3, size=6) # change the variable name in '' to plot different variables!
