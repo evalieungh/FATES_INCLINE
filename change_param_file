@@ -4,12 +4,27 @@
 ### first change traits/parameters measured in INCLINE. Then, maybe, all others that we know something about!
 ### updated parameter file kept here: https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
 
-## Plant 'height' (INCLINE measurement = , FATES parameters = )
+# parameters measured from INCLINE
+### averages for (how many?) individuals. Need to check if these vary with precipitation! If so, we may need to account for it somehow.
+### data located in Eva's local folder.
+### these are the available traits:
+### "Plant_Height_mm"       #
+### "Wet_Mass_g"            #
+### "Dry_Mass_g"            #
+### "Leaf_Area_cm2"         #
+### "N_percent"             #
+### "C_percent"             #
+### "CN_ratio"              #
+### "SLA_cm2_g"             #
+### "LDMC"                  #
+### "Leaf_Thickness_Ave_mm" #
+
+## Plant height
 
 ## Biomass
 
 # Seeds
 
-## fates_seed_alloc : fraction of available carbon balance allocated to seeds 
+## fates_seed_alloc : fraction of available carbon balance allocated to seeds
 
-## fates_seed_suppl : Supplemental external seed rain source term (non-mass conserving) 
+## fates_seed_suppl : Supplemental external seed rain source term (non-mass conserving)

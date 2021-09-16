@@ -1,6 +1,6 @@
 # model run settings
 ## copied from NorESM_LandSites_Platform/landsites_tools/settings.txt  on the 15.09.2021
-## settings for my INCLINE model runs
+## settings in common for all my INCLINE model runs
 
 [path]
 dir_cases = ~/ctsm_cases # cases root folder
