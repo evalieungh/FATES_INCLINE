@@ -1,13 +1,19 @@
 # script to change parameter files before simulations
 
-### where do I specify which PFTs to use? Copy Arctic grass 3 times, then modify each copy to best match Sibbaldia procumbens, Veronica officinalis and Succisa pratensis
-### first change traits/parameters measured in INCLINE. Then, maybe, all others that we know something about!
-### updated parameter file kept here: https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
+### where do I specify which PFTs to use? Copy Arctic grass 3 times,
+### then modify each copy to best match Sibbaldia procumbens, Veronica
+### officinalis and Succisa pratensis.
+### First change traits/parameters measured in INCLINE. Then, maybe, all others
+### that we know something about!
+### Look at parameter file for FATES: https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
+### Use tool to change parameter files: /fates/tools/BatchPatchParams.py
 
 # parameters measured from INCLINE
-### averages for (how many?) individuals. Need to check if these vary with precipitation! If so, we may need to account for it somehow.
-### data located in Eva's local folder.
-### these are the available traits:
+### averages for (how many?) individuals.
+### Need to check if these vary with precipitation! If so, we may need to
+### account for it somehow.
+### Data is located in Eva's local folder.
+### These are the available traits:
 ### "Plant_Height_mm"       #
 ### "Wet_Mass_g"            #
 ### "Dry_Mass_g"            #
@@ -19,12 +25,32 @@
 ### "LDMC"                  #
 ### "Leaf_Thickness_Ave_mm" #
 
-## Plant height
+# I guess I need to make an xml file (or many?) containing new param values
+# --------------------------------------------------------------------------
 
-## Biomass
+# Plant height
+
+# Biomass
+
+# Nitrogen per biomass
+
+# Carbon per biomass
+
+# C/N ratio
+
+# SLA (specific leaf area)
+
+# LDMC (leaf dry matter content)
+
+# Leaf thickness
 
 # Seeds
 
 ## fates_seed_alloc : fraction of available carbon balance allocated to seeds
 
 ## fates_seed_suppl : Supplemental external seed rain source term (non-mass conserving)
+
+# Then, use BatchPatchParams tool to make new PFTs
+# --------------------------------------------------------------------------
+
+./BatchPatchParams.py # add arguments here? Draw on params and specify PFTs to keep
