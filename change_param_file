@@ -25,7 +25,7 @@
 ### "LDMC"                  #
 ### "Leaf_Thickness_Ave_mm" #
 
-# I guess I need to make an xml file (or many?) containing new param values
+# Do I need to make an xml file (or many?) containing new param values
 # --------------------------------------------------------------------------
 
 # Plant height
@@ -53,4 +53,4 @@
 # Then, use BatchPatchParams tool to make new PFTs
 # --------------------------------------------------------------------------
 
-./BatchPatchParams.py # add arguments here? Draw on params and specify PFTs to keep
+./BatchPatchParams.py # add arguments to use xml file and specify PFTs to keep?

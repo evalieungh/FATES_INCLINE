@@ -1,13 +1,22 @@
+# -----------------------------------------------------------------------------
 # Evas workflow for running FATES-CTSM for simulating the INCLINE experiment
+# -----------------------------------------------------------------------------
 
 ###
 ### using the EMERALD-FATES-platform (see ...)
 ### look here for code inspiration:
 ### https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
 
-# 1. Input data
+
+
+# 1. Model and input data
+### install the platform
+git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
+
 ### import data from shared files.
 https://zenodo.org/record/4108341/files/inputdata_version2.0.0_ALP1.tar
+#### See all parameters specifying CTSM running options in this appendix:
+#### https://www.cesm.ucar.edu/models/ccsm4.0/ccsm_doc/a4234.html
 
 
 # 2. running a simulation
