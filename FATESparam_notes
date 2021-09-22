@@ -1,0 +1,117 @@
+# promising parameters from FATES
+# -------------------------------------
+
+### a quick glance at the parameters used by FATES that might be interesting.
+### parameters copied from the master parameter file,
+### https://github.om/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
+### Compare parameters to the available measured traits:
+###  "Plant_Height_m"
+###	 "Wet_Mass_g"
+###	 "Dry_Mass_g"
+###	 "Leaf_Area_cm2"
+###	 "N_percent"
+###	 "C_percent"
+###	 "CN_ratio"
+###	 "SLA_cm2_g"
+###	 "LDMC"                 
+###	 "Leaf_Thickness_Ave_mm"
+
+double fates_alloc_storage_cushion(fates_pft) ;
+		fates_alloc_storage_cushion:units = "fraction" ;
+		fates_alloc_storage_cushion:long_name = "maximum size of storage C pool, relative to maximum size of leaf C pool" ;
+
+double fates_allom_dbh_maxheight(fates_pft) ;
+		fates_allom_dbh_maxheight:units = "cm" ;
+		fates_allom_dbh_maxheight:long_name = "the diameter (if any) corresponding to maximum height, diameters may increase beyond this" ;
+
+double fates_allom_la_per_sa_int(fates_pft) ;
+		fates_allom_la_per_sa_int:units = "m2/cm2" ;
+		fates_allom_la_per_sa_int:long_name = "Leaf area per sapwood area, intercept" ;
+
+double fates_allom_sai_scaler(fates_pft) ;
+		fates_allom_sai_scaler:units = "m2/m2" ;
+		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
+
+double fates_c2b(fates_pft) ;
+		fates_c2b:units = "ratio" ;
+		fates_c2b:long_name = "Carbon to biomass multiplier of bulk structural tissues" ;
+
+double fates_dev_arbitrary_pft(fates_pft) ;
+		fates_dev_arbitrary_pft:units = "unknown" ;
+		fates_dev_arbitrary_pft:long_name = "Unassociated pft dimensioned free parameter that developers can use for testing arbitrary new hypotheses" ;
+
+double fates_fnrt_prof_mode(fates_pft) ;
+		fates_fnrt_prof_mode:units = "index" ;
+		fates_fnrt_prof_mode:long_name = "Index to select fine root profile function: 1) Jackson Beta, 2) 1-param exponential 3) 2-param exponential" ;
+
+double fates_hydr_thetas_node(fates_hydr_organs, fates_pft) ;
+		fates_hydr_thetas_node:units = "cm3/cm3" ;
+		fates_hydr_thetas_node:long_name = "saturated water content" ;
+
+double fates_leaf_diameter(fates_pft) ;
+		fates_leaf_diameter:units = "m" ;
+		fates_leaf_diameter:long_name = "Characteristic leaf dimension" ;
+
+double fates_leaf_slamax(fates_pft) ;
+		fates_leaf_slamax:units = "m^2/gC" ;
+		fates_leaf_slamax:long_name = "Maximum Specific Leaf Area (SLA), even if under a dense canopy" ;
+
+double fates_leaf_slatop(fates_pft) ;
+		fates_leaf_slatop:units = "m^2/gC" ;
+		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
+
+double fates_leaf_slatop(fates_pft) ;
+		fates_leaf_slatop:units = "m^2/gC" ;
+		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
+
+double fates_mort_bmort(fates_pft) ;
+		fates_mort_bmort:units = "1/yr" ;
+		fates_mort_bmort:long_name = "background mortality rate" ;
+
+double fates_mort_ip_age_senescence(fates_pft) ;
+		fates_mort_ip_age_senescence:units = "years" ;
+		fates_mort_ip_age_senescence:long_name = "Mortality cohort age senescence inflection point. If _ this mortality term is off. Setting this value turns on age dependent mortality. " ;
+
+double fates_mort_ip_size_senescence(fates_pft) ;
+		fates_mort_ip_size_senescence:units = "dbh cm" ;
+		fates_mort_ip_size_senescence:long_name = "Mortality dbh senescence inflection point. If _ this mortality term is off. Setting this value turns on size dependent mortality" ;
+double fates_mort_r_age_senescence(fates_pft) ;
+		fates_mort_r_age_senescence:units = "mortality rate year^-1" ;
+		fates_mort_r_age_senescence:long_name = "Mortality age senescence rate of change. Sensible range is around 0.03-0.06. Larger values givesteeper mortality curves." ;
+double fates_mort_r_size_senescence(fates_pft) ;
+		fates_mort_r_size_senescence:units = "mortality rate dbh^-1" ;
+		fates_mort_r_size_senescence:long_name = "Mortality dbh senescence rate of change. Sensible range is around 0.03-0.06. Larger values give steeper mortality curves." ;
+
+double fates_phen_season_decid(fates_pft) ;
+		fates_phen_season_decid:units = "logical flag" ;
+		fates_phen_season_decid:long_name = "Binary flag for seasonal-deciduous leaf habit" ;
+
+double fates_recruit_hgt_min(fates_pft) ;
+		fates_recruit_hgt_min:units = "m" ;
+		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
+double fates_recruit_initd(fates_pft) ;
+		fates_recruit_initd:units = "stems/m2" ;
+		fates_recruit_initd:long_name = "initial seedling density for a cold-start near-bare-ground simulation" ;
+
+double fates_seed_alloc(fates_pft) ;
+		fates_seed_alloc:units = "fraction" ;
+		fates_seed_alloc:long_name = "fraction of available carbon balance allocated to seeds" ;
+double fates_seed_alloc_mature(fates_pft) ;
+		fates_seed_alloc_mature:units = "fraction" ;
+		fates_seed_alloc_mature:long_name = "fraction of available carbon balance allocated to seeds in mature plants (adds to fates_seed_alloc)" ;
+
+double fates_seed_suppl(fates_pft) ;
+		fates_seed_suppl:units = "KgC/m2/yr" ;
+		fates_seed_suppl:long_name = "Supplemental external seed rain source term (non-mass conserving)" ;
+
+double fates_woody(fates_pft) ;
+		fates_woody:units = "logical flag" ;
+		fates_woody:long_name = "Binary woody lifeform flag" ;
+
+double fates_hlm_pft_map(fates_hlm_pftno, fates_pft) ;
+    fates_hlm_pft_map:units = "area fraction" ;
+    fates_hlm_pft_map:long_name = "In fixed biogeog mode, fraction of HLM area associated with each FATES PFT" ;
+
+double fates_phen_coldtemp ;
+		fates_phen_coldtemp:units = "degrees C" ;
+		fates_phen_coldtemp:long_name = "vegetation temperature exceedance that flags a cold-day for leaf-drop" ;
