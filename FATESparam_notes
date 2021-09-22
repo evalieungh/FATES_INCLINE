@@ -13,105 +13,151 @@
 ###	 "C_percent"
 ###	 "CN_ratio"
 ###	 "SLA_cm2_g"
-###	 "LDMC"                 
+###	 "LDMC"
 ###	 "Leaf_Thickness_Ave_mm"
+### In addition, there are the demographic traits:
+### Number of leaves, longest leaf length, number of flowers etc.
 
 double fates_alloc_storage_cushion(fates_pft) ;
 		fates_alloc_storage_cushion:units = "fraction" ;
 		fates_alloc_storage_cushion:long_name = "maximum size of storage C pool, relative to maximum size of leaf C pool" ;
+## This parameter is probably meant to cap the amount of C a healthy cohort
+## can store, to a reasonable level. Probably not a candidate for customisation
+## in this project after all.
 
 double fates_allom_dbh_maxheight(fates_pft) ;
 		fates_allom_dbh_maxheight:units = "cm" ;
 		fates_allom_dbh_maxheight:long_name = "the diameter (if any) corresponding to maximum height, diameters may increase beyond this" ;
+## Stem diameter is not measured, but might be possible to guess relative to
+## the default value. Default for Arctic C3 grass is = 0.35 cm = 3.5 mm.
+## Are Sibpro, Veroff, Sucpra wider or slimmer than that?
 
 double fates_allom_la_per_sa_int(fates_pft) ;
 		fates_allom_la_per_sa_int:units = "m2/cm2" ;
 		fates_allom_la_per_sa_int:long_name = "Leaf area per sapwood area, intercept" ;
+## We have "Leaf_Area_cm2" measured. Can we find sapwood area as well, or use
+## a constant value to make different parameter values for the three species?
 
 double fates_allom_sai_scaler(fates_pft) ;
 		fates_allom_sai_scaler:units = "m2/m2" ;
 		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
+## LAI=Leaf Area Index, SAI=Stem Area Index. Can these be derived from SLA or
+## any other traits?
 
 double fates_c2b(fates_pft) ;
 		fates_c2b:units = "ratio" ;
 		fates_c2b:long_name = "Carbon to biomass multiplier of bulk structural tissues" ;
+## How does this work? We have wet and dry mass (=biomass?) in grams, and
+## carbon percent. Default for Arctic C3 grass = 2 (same for all the PFTs!)
 
 double fates_dev_arbitrary_pft(fates_pft) ;
 		fates_dev_arbitrary_pft:units = "unknown" ;
 		fates_dev_arbitrary_pft:long_name = "Unassociated pft dimensioned free parameter that developers can use for testing arbitrary new hypotheses" ;
+## Could this be relevant to use? There is another, similar parameter in the
+## FATES parameter file. But how is it used, if at all, in the model?
 
 double fates_fnrt_prof_mode(fates_pft) ;
 		fates_fnrt_prof_mode:units = "index" ;
 		fates_fnrt_prof_mode:long_name = "Index to select fine root profile function: 1) Jackson Beta, 2) 1-param exponential 3) 2-param exponential" ;
+## What are these options, and do any of them correcpond better to our species
+## than the default? Default for Arctic C3 grass = 3 (2-param exponential)
 
 double fates_hydr_thetas_node(fates_hydr_organs, fates_pft) ;
 		fates_hydr_thetas_node:units = "cm3/cm3" ;
 		fates_hydr_thetas_node:long_name = "saturated water content" ;
+## What is this, exactly? Could we approximate it using the measured
+## wet and dry mass, and  Leaf_Thickness_Ave_mm ?
+## Default is = 0.75 (for all grass PFTs, 0.65 for trees)
 
 double fates_leaf_diameter(fates_pft) ;
 		fates_leaf_diameter:units = "m" ;
 		fates_leaf_diameter:long_name = "Characteristic leaf dimension" ;
+## What exactly is this? Would leaf length be the same?
+## Default is = 0.04 m = 40 mm (same for all PFTs)
 
 double fates_leaf_slamax(fates_pft) ;
 		fates_leaf_slamax:units = "m^2/gC" ;
 		fates_leaf_slamax:long_name = "Maximum Specific Leaf Area (SLA), even if under a dense canopy" ;
+## We have "SLA_cm2_g". See param under - is the measurement better suited
+## for that parameter? If so, should we change both, and if so should we
+## adjust this one to be a bit lower?
+## Default is = 0.03 m^2/gC
 
 double fates_leaf_slatop(fates_pft) ;
 		fates_leaf_slatop:units = "m^2/gC" ;
 		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
-
-double fates_leaf_slatop(fates_pft) ;
-		fates_leaf_slatop:units = "m^2/gC" ;
-		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
+## We have "SLA_cm2_g". Almost directly transferrable?
+## Default is = 0.03 m^2/gC
 
 double fates_mort_bmort(fates_pft) ;
 		fates_mort_bmort:units = "1/yr" ;
 		fates_mort_bmort:long_name = "background mortality rate" ;
+## Can this be estimated from the demographic data? Maybe better to leave it be,
+## since we have not recorded the cause of mortality. But it might be interesting
+## to compare modelled overall mortality with overall mortality in the
+## demographic data.
 
 double fates_mort_ip_age_senescence(fates_pft) ;
 		fates_mort_ip_age_senescence:units = "years" ;
 		fates_mort_ip_age_senescence:long_name = "Mortality cohort age senescence inflection point. If _ this mortality term is off. Setting this value turns on age dependent mortality. " ;
-
-double fates_mort_ip_size_senescence(fates_pft) ;
-		fates_mort_ip_size_senescence:units = "dbh cm" ;
-		fates_mort_ip_size_senescence:long_name = "Mortality dbh senescence inflection point. If _ this mortality term is off. Setting this value turns on size dependent mortality" ;
-double fates_mort_r_age_senescence(fates_pft) ;
-		fates_mort_r_age_senescence:units = "mortality rate year^-1" ;
-		fates_mort_r_age_senescence:long_name = "Mortality age senescence rate of change. Sensible range is around 0.03-0.06. Larger values givesteeper mortality curves." ;
-double fates_mort_r_size_senescence(fates_pft) ;
-		fates_mort_r_size_senescence:units = "mortality rate dbh^-1" ;
-		fates_mort_r_size_senescence:long_name = "Mortality dbh senescence rate of change. Sensible range is around 0.03-0.06. Larger values give steeper mortality curves." ;
+## Default = '_' = OFF
+## Should we turn it on, if we know the max age of individuals from
+## demographic data or literature?
+## Similar issue for related parameters:
+## fates_mort_ip_size_senescence
+## fates_mort_r_age_senescence
+## fates_mort_r_size_senescence
 
 double fates_phen_season_decid(fates_pft) ;
 		fates_phen_season_decid:units = "logical flag" ;
 		fates_phen_season_decid:long_name = "Binary flag for seasonal-deciduous leaf habit" ;
+## This should be ON, I think. Belowground parts of out species survive, but
+## leaves and stems die back in the autumn.
+## Default = 1 --> OK!
 
 double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
 		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
+## Maybe lower this to e.g. mean Juvenile height from demographic data?
+## Default = 0.125 m = 125 mm
+
 double fates_recruit_initd(fates_pft) ;
 		fates_recruit_initd:units = "stems/m2" ;
 		fates_recruit_initd:long_name = "initial seedling density for a cold-start near-bare-ground simulation" ;
+## Depending on how we do spin-up and proper simulation, maybe this needs
+## to be changed.
+## Default is = 0.2 stems/m2
 
 double fates_seed_alloc(fates_pft) ;
 		fates_seed_alloc:units = "fraction" ;
 		fates_seed_alloc:long_name = "fraction of available carbon balance allocated to seeds" ;
 double fates_seed_alloc_mature(fates_pft) ;
-		fates_seed_alloc_mature:units = "fraction" ;
-		fates_seed_alloc_mature:long_name = "fraction of available carbon balance allocated to seeds in mature plants (adds to fates_seed_alloc)" ;
+    		fates_seed_alloc_mature:units = "fraction" ;
+    		fates_seed_alloc_mature:long_name = "fraction of available carbon balance allocated to seeds in mature plants (adds to fates_seed_alloc)" ;
+## These two params, or maybe just the latter, should be varied according to
+## our study question about seeds/dispersal.
+## Default is = 0.1 for small plants (same for all PTFs) and
+## for mature = 0.9
 
 double fates_seed_suppl(fates_pft) ;
 		fates_seed_suppl:units = "KgC/m2/yr" ;
 		fates_seed_suppl:long_name = "Supplemental external seed rain source term (non-mass conserving)" ;
+## Vary according to study question to simulate increased seed rain from lowland
+## Default = 0
 
 double fates_woody(fates_pft) ;
 		fates_woody:units = "logical flag" ;
 		fates_woody:long_name = "Binary woody lifeform flag" ;
+## Check that this is off --- OK!
 
 double fates_hlm_pft_map(fates_hlm_pftno, fates_pft) ;
     fates_hlm_pft_map:units = "area fraction" ;
     fates_hlm_pft_map:long_name = "In fixed biogeog mode, fraction of HLM area associated with each FATES PFT" ;
+## What is HLM? If we can use fixed biogeography mode, then this is probably the
+## place to define how much of each PFT to start with.
 
 double fates_phen_coldtemp ;
 		fates_phen_coldtemp:units = "degrees C" ;
 		fates_phen_coldtemp:long_name = "vegetation temperature exceedance that flags a cold-day for leaf-drop" ;
+## Check that this looks reasonable for out species - change if not?
+## Default = 7.5 (one value for all PFTs)
