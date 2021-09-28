@@ -18,13 +18,6 @@
 ### In addition, there are the demographic traits:
 ### Number of leaves, longest leaf length, number of flowers etc.
 
-double fates_alloc_storage_cushion(fates_pft) ;
-		fates_alloc_storage_cushion:units = "fraction" ;
-		fates_alloc_storage_cushion:long_name = "maximum size of storage C pool, relative to maximum size of leaf C pool" ;
-## This parameter is probably meant to cap the amount of C a healthy cohort
-## can store, to a reasonable level. Probably not a candidate for customisation
-## in this project after all.
-
 double fates_allom_dbh_maxheight(fates_pft) ;
 		fates_allom_dbh_maxheight:units = "cm" ;
 		fates_allom_dbh_maxheight:long_name = "the diameter (if any) corresponding to maximum height, diameters may increase beyond this" ;
@@ -43,6 +36,7 @@ double fates_allom_sai_scaler(fates_pft) ;
 		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
 ## LAI=Leaf Area Index, SAI=Stem Area Index. Can these be derived from SLA or
 ## any other traits?
+## Default is 0.1 for all PFTs. Maybe best to leave as is.
 
 double fates_c2b(fates_pft) ;
 		fates_c2b:units = "ratio" ;
