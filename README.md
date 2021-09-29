@@ -7,6 +7,6 @@ In time, this repository will also contain everything necessary to reproduce the
 
 'change_param_file' will be a script to change parameter files before simulations.
 
-'FATESparam_notes' is a notepad to compare model parameters to measured traits.
+'traits_params_notes' is a notepad to compare model parameters to measured traits.
 
 'settings_INCLINE' will be the settings file used by the NorESM_LandSites_Platform to set up simulations.
