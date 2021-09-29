@@ -11,8 +11,8 @@
 ###	 "Leaf_Area_cm2"
 ###	 "N_percent"
 ###	 "C_percent"
-###	 "CN_ratio"
-###	 "SLA_cm2_g"
+###	 "CN_ratio"       #
+###	 "SLA_cm2_g"			# ratio of leaf area to leaf dry mass
 ###	 "LDMC"
 ###	 "Leaf_Thickness_Ave_mm"
 ### In addition, there are the demographic traits:
@@ -23,26 +23,34 @@ double fates_allom_dbh_maxheight(fates_pft) ;
 		fates_allom_dbh_maxheight:long_name = "the diameter (if any) corresponding to maximum height, diameters may increase beyond this" ;
 ## Stem diameter is not measured, but might be possible to guess relative to
 ## the default value. Default for Arctic C3 grass is = 0.35 cm = 3.5 mm.
-## Are Sibpro, Veroff, Sucpra wider or slimmer than that?
+## Are Sibbaldia procumbens, Veronica officinalis, Succisa pratensis
+## wider or slimmer than that?
 
 double fates_allom_la_per_sa_int(fates_pft) ;
 		fates_allom_la_per_sa_int:units = "m2/cm2" ;
 		fates_allom_la_per_sa_int:long_name = "Leaf area per sapwood area, intercept" ;
 ## We have "Leaf_Area_cm2" measured. Can we find sapwood area as well, or use
 ## a constant value to make different parameter values for the three species?
+## Default is 0.8 for all PFTs. Leave as is?
 
 double fates_allom_sai_scaler(fates_pft) ;
 		fates_allom_sai_scaler:units = "m2/m2" ;
 		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
-## LAI=Leaf Area Index, SAI=Stem Area Index. Can these be derived from SLA or
-## any other traits?
-## Default is 0.1 for all PFTs. Maybe best to leave as is.
+## LAI=Leaf Area Index (one-sided green leaf area per unit ground surface area,
+## LAI = leaf area / ground area)
+## SAI=Stem Area Index. Can these be derived from SLA or other traits?
+## "Leaf dry mass multiplied by the SLA is converted into leaf area"
+## How to determine 'ground' surface area?
+## Default is 0.1 for all PFTs.
 
 double fates_c2b(fates_pft) ;
 		fates_c2b:units = "ratio" ;
 		fates_c2b:long_name = "Carbon to biomass multiplier of bulk structural tissues" ;
 ## How does this work? We have wet and dry mass (=biomass?) in grams, and
-## carbon percent. Default for Arctic C3 grass = 2 (same for all the PFTs!)
+## carbon percent. Our three species have >50% Carbon
+## 45.6 Sib_pro, 46.2 Suc_pra, 47.9 Ver_off
+## Default for Arctic C3 grass = 2 (same for all the PFTs!)
+## Could adjust it down a little?
 
 double fates_dev_arbitrary_pft(fates_pft) ;
 		fates_dev_arbitrary_pft:units = "unknown" ;
@@ -53,7 +61,7 @@ double fates_dev_arbitrary_pft(fates_pft) ;
 double fates_fnrt_prof_mode(fates_pft) ;
 		fates_fnrt_prof_mode:units = "index" ;
 		fates_fnrt_prof_mode:long_name = "Index to select fine root profile function: 1) Jackson Beta, 2) 1-param exponential 3) 2-param exponential" ;
-## What are these options, and do any of them correcpond better to our species
+## What are these options, and do any of them correspond better to our species
 ## than the default? Default for Arctic C3 grass = 3 (2-param exponential)
 
 double fates_hydr_thetas_node(fates_hydr_organs, fates_pft) ;
