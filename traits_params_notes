@@ -1,21 +1,22 @@
-# promising parameters from FATES
+# Measured traits & select parameters from FATES
 # -------------------------------------
 
-### a quick glance at the parameters used by FATES that might be interesting.
+### a quick glance at the measured traits and parameters used by
+### FATES that might be interesting.
 ### parameters copied from the master parameter file,
 ### https://github.om/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
 ### Compare parameters to the available measured traits:
-###  "Plant_Height_m"
-###	 "Wet_Mass_g"
-###	 "Dry_Mass_g"
-###	 "Leaf_Area_cm2"
-###	 "N_percent"
-###	 "C_percent"
-###	 "CN_ratio"       #
-###	 "SLA_cm2_g"			# ratio of leaf area to leaf dry mass
-###	 "LDMC"
-###	 "Leaf_Thickness_Ave_mm"
-### In addition, there are the demographic traits:
+###  "Plant_Height_m"        # plant maximal height
+###	 "Wet_Mass_g"            # weight of whole plant (with roots?) before drying
+###	 "Dry_Mass_g"            # weight of whole plant after drying
+###	 "Leaf_Area_cm2"         # area of leaf surface (one-sided)
+###	 "N_percent"             # Nitrogen content, percent of total dry mass?
+###	 "C_percent"             # Carbon content, percent of total dry mass ?
+###	 "CN_ratio"              # ratio of carbon to nitrogen content
+###	 "SLA_cm2_g"		         # ratio of leaf area to leaf dry mass
+###	 "LDMC"                  # leaf dry matter content
+###	 "Leaf_Thickness_Ave_mm" # mean leaf thickness for ? leaves per individual
+### In addition, there are demographic traits:
 ### Number of leaves, longest leaf length, number of flowers etc.
 
 double fates_allom_dbh_maxheight(fates_pft) ;
