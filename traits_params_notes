@@ -84,25 +84,6 @@ double fates_leaf_slatop(fates_pft) ;
 ## Ver_off (5.07*0.479)/100 = 0.0243 m^2/gC
 ## Default is = 0.03 m^2/gC
 
-double fates_mort_bmort(fates_pft) ;
-		fates_mort_bmort:units = "1/yr" ;
-		fates_mort_bmort:long_name = "background mortality rate" ;
-## Can this be estimated from the demographic data? Maybe better to leave it be,
-## since we have not recorded the cause of mortality. But it might be interesting
-## to compare modelled overall mortality with overall mortality in the
-## demographic data.
-
-double fates_mort_ip_age_senescence(fates_pft) ;
-		fates_mort_ip_age_senescence:units = "years" ;
-		fates_mort_ip_age_senescence:long_name = "Mortality cohort age senescence inflection point. If _ this mortality term is off. Setting this value turns on age dependent mortality. " ;
-## Default = '_' = OFF
-## Should we turn it on, if we know the max age of individuals from
-## demographic data or literature?
-## Similar issue for related parameters:
-## fates_mort_ip_size_senescence
-## fates_mort_r_age_senescence
-## fates_mort_r_size_senescence
-
 double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
 		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
