@@ -103,13 +103,6 @@ double fates_mort_ip_age_senescence(fates_pft) ;
 ## fates_mort_r_age_senescence
 ## fates_mort_r_size_senescence
 
-double fates_phen_season_decid(fates_pft) ;
-		fates_phen_season_decid:units = "logical flag" ;
-		fates_phen_season_decid:long_name = "Binary flag for seasonal-deciduous leaf habit" ;
-## This should be ON, I think. Belowground parts of out species survive, but
-## leaves and stems die back in the autumn.
-## Default = 1 --> OK!
-
 double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
 		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
