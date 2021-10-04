@@ -8,7 +8,6 @@
 ### https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
 
 
-
 # 1. Model and input data
 ### install the platform
 git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
@@ -23,6 +22,14 @@ https://zenodo.org/record/4108341/files/inputdata_version2.0.0_ALP1.tar
 ## create new case
 create_newcase --case $HOME/ctsm_cases/fates_alp1 --compset 2000_DATM%1PTGSWP3_CLM50%FATES_SICE_SOCN_MOSART_SGLC_SWAV --res 1x1_ALP1 --machine espresso --run-unsupported
 
+## PFT test case
+## To ensure all our custom PFTS are able to grow in the modelled climate at all,
+## use FATES ‘nocomp’ mode. "Activating ‘fates_use_nocomp=.true.’ has the effect
+## of putting each PFT in your parameter file on it’s own patch. From this, you
+## can assess whether plants can potentially exist independent of the impacts
+## of light competition"
+cd ..?
+./xmlchange fates_use_nocomp=.true.
 
 ## case setup
 cd $HOME/ctsm_cases/fates_alp1
