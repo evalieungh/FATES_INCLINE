@@ -27,13 +27,6 @@ double fates_allom_dbh_maxheight(fates_pft) ;
 ## Are Sibbaldia procumbens, Veronica officinalis, Succisa pratensis
 ## wider or slimmer than that?
 
-double fates_allom_la_per_sa_int(fates_pft) ;
-		fates_allom_la_per_sa_int:units = "m2/cm2" ;
-		fates_allom_la_per_sa_int:long_name = "Leaf area per sapwood area, intercept" ;
-## We have "Leaf_Area_cm2" measured. Can we find sapwood area as well, or use
-## a constant value to make different parameter values for the three species?
-## Default is 0.8 for all PFTs. Leave as is?
-
 double fates_allom_sai_scaler(fates_pft) ;
 		fates_allom_sai_scaler:units = "m2/m2" ;
 		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
