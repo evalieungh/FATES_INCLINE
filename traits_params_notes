@@ -23,16 +23,16 @@ double fates_allom_dbh_maxheight(fates_pft) ;
 		fates_allom_dbh_maxheight:units = "cm" ;
 		fates_allom_dbh_maxheight:long_name = "the diameter (if any) corresponding to maximum height, diameters may increase beyond this" ;
 ## Stem diameter is not measured, but might be possible to guess relative to
-## the default value. Default for Arctic C3 grass is = 0.35 cm = 3.5 mm.
+## the default value. Default for Arctic C3 grass is = 0.35 cm.
 ## Are Sibbaldia procumbens, Veronica officinalis, Succisa pratensis
-## wider or slimmer than that?
+## wider or slimmer than that? I think Sib_pro is slimmer, at least.
 
 double fates_allom_sai_scaler(fates_pft) ;
 		fates_allom_sai_scaler:units = "m2/m2" ;
 		fates_allom_sai_scaler:long_name = "allometric ratio of SAI per LAI"
-## LAI=Leaf Area Index (one-sided green leaf area per unit ground surface area,
+## LAI = Leaf Area Index (one-sided green leaf area per unit ground surface area,
 ## LAI = leaf area / ground area)
-## SAI=Stem Area Index. Can these be derived from SLA or other traits?
+## SAI = Stem Area Index. Can these be derived from SLA or other traits?
 ## "Leaf dry mass multiplied by the SLA is converted into leaf area"
 ## How to determine 'ground' surface area?
 ## Default is 0.1 for all PFTs.
@@ -45,12 +45,6 @@ double fates_c2b(fates_pft) ;
 ## 45.6 Sib_pro, 46.2 Suc_pra, 47.9 Ver_off
 ## Default for Arctic C3 grass = 2 (same for all the PFTs!)
 ## Could adjust it down a little?
-
-double fates_dev_arbitrary_pft(fates_pft) ;
-		fates_dev_arbitrary_pft:units = "unknown" ;
-		fates_dev_arbitrary_pft:long_name = "Unassociated pft dimensioned free parameter that developers can use for testing arbitrary new hypotheses" ;
-## Could this be relevant to use? There is another, similar parameter in the
-## FATES parameter file. But how is it used, if at all, in the model?
 
 double fates_fnrt_prof_mode(fates_pft) ;
 		fates_fnrt_prof_mode:units = "index" ;
