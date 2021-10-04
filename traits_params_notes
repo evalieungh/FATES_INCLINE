@@ -49,8 +49,8 @@ double fates_c2b(fates_pft) ;
 double fates_fnrt_prof_mode(fates_pft) ;
 		fates_fnrt_prof_mode:units = "index" ;
 		fates_fnrt_prof_mode:long_name = "Index to select fine root profile function: 1) Jackson Beta, 2) 1-param exponential 3) 2-param exponential" ;
-## What are these options, and do any of them correspond better to our species
-## than the default? Default for Arctic C3 grass = 3 (2-param exponential)
+## What are these options, and do any of them correspond better to our species?
+## Default for Arctic C3 grass = 3 (2-param exponential)
 
 double fates_hydr_thetas_node(fates_hydr_organs, fates_pft) ;
 		fates_hydr_thetas_node:units = "cm3/cm3" ;
@@ -62,7 +62,7 @@ double fates_hydr_thetas_node(fates_hydr_organs, fates_pft) ;
 double fates_leaf_diameter(fates_pft) ;
 		fates_leaf_diameter:units = "m" ;
 		fates_leaf_diameter:long_name = "Characteristic leaf dimension" ;
-## What exactly is this? Would leaf length be the same?
+## What exactly is this? Would leaf width or length be the same?
 ## Default is = 0.04 m = 40 mm (same for all PFTs)
 
 double fates_leaf_slamax(fates_pft) ;
@@ -77,6 +77,11 @@ double fates_leaf_slatop(fates_pft) ;
 		fates_leaf_slatop:units = "m^2/gC" ;
 		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
 ## We have "SLA_cm2_g". Almost directly transferrable?
+## Sib_pro 5.24, Suc_pra 5.63, Ver_off 5.07 in cm^2/g. Converting to m^2/gC
+## by using percent Carbon per species:
+## Sib_pro (5.24*0.456)/100 = 0.0239 m^2/gC,
+## Suc_pra (5.63*0.463)/100 = 0.0261 m^2/gC,
+## Ver_off (5.07*0.479)/100 = 0.0243 m^2/gC
 ## Default is = 0.03 m^2/gC
 
 double fates_mort_bmort(fates_pft) ;
