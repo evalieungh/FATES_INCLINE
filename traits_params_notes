@@ -130,13 +130,9 @@ double fates_seed_alloc_mature(fates_pft) ;
 double fates_seed_suppl(fates_pft) ;
 		fates_seed_suppl:units = "KgC/m2/yr" ;
 		fates_seed_suppl:long_name = "Supplemental external seed rain source term (non-mass conserving)" ;
-## Vary according to study question to simulate increased seed rain from lowland
+## Vary according to study question to simulate increased seed rain from lowland.
+## How much is reasonable? 0.1? 1? 10?
 ## Default = 0
-
-double fates_woody(fates_pft) ;
-		fates_woody:units = "logical flag" ;
-		fates_woody:long_name = "Binary woody lifeform flag" ;
-## Check that this is off --- OK!
 
 double fates_hlm_pft_map(fates_hlm_pftno, fates_pft) ;
     fates_hlm_pft_map:units = "area fraction" ;
