@@ -28,29 +28,17 @@
 # Do I need to make an xml file (or many?) containing new param values
 # --------------------------------------------------------------------------
 
-# Plant height
-
-# Biomass
-
-# Nitrogen per biomass
-
-# Carbon per biomass
-
-# C/N ratio
-
-# SLA (specific leaf area)
-
-# LDMC (leaf dry matter content)
-
-# Leaf thickness
-
-# Seeds
+# add parameters and new values here from the 'traits_params_notes' file
 
 ## fates_seed_alloc : fraction of available carbon balance allocated to seeds
+##
 
 ## fates_seed_suppl : Supplemental external seed rain source term (non-mass conserving)
 
 # Then, use BatchPatchParams tool to make new PFTs
 # --------------------------------------------------------------------------
+
+## new PFTs, copies of Arctic C3 grass
+
 
 ./BatchPatchParams.py # add arguments to use xml file and specify PFTs to keep?
