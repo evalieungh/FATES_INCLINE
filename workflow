@@ -3,24 +3,20 @@
 # -----------------------------------------------------------------------------
 
 ### using NREC virtual machine
-### using the EMERALD-FATES-platform (see ...)
-### look here for code inspiration:
-### https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
+### using the EMERALD-FATES-platform https://github.com/NorESMhub/NorESM_LandSites_Platform
+### Code is executed in MobaXterm session on eva_dev instance (a virtual machine)
+### on NREC. See the 'Using Virtual Machine and MobaXterm' file for setup
 
+# 1. Model and input data - handled by the platform
+### NorESM-CLM-FATES version:
+### compset:
+### domain (location): 1x1_ALP1, 1x1_ALP4
 
-# 1. Model and input data - OK
-### install the platform
-git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
+# 2. Setting up custom simulations
+### Define custom PFTs, see 'change_param_file' script.
+### Making 9 PFTs: Min, average, and max version of three species.
 
-### import data from shared files. - OK
-https://zenodo.org/record/4108341/files/inputdata_version2.0.0_ALP1.tar
-#### See all parameters specifying CTSM running options in this appendix:
-#### https://www.cesm.ucar.edu/models/ccsm4.0/ccsm_doc/a4234.html
-
-
-# 2. running a simulation
-
-### apply the settings from the settings_INCLINE file here
+### apply the settings from the settings_INCLINE file
 
 ## create new case
 create_newcase --case $HOME/ctsm_cases/fates_alp1 --compset 2000_DATM%1PTGSWP3_CLM50%FATES_SICE_SOCN_MOSART_SGLC_SWAV --res 1x1_ALP1 --machine espresso --run-unsupported
@@ -42,12 +38,17 @@ cd ..?
 fates_use_nocomp=.true.
 #add manually in user clm file
 
+
+# 3. running the simulation
 ## case build
 ./case.build
 
 ## case submit
 ./case.submit
 
+# 4. Analysing output
+
+## go
 cd $HOME/work/fates_alp1
 ls -la
 ### bld: contains object and CESM executable (called cesm.exe) for the run configuration
@@ -58,7 +59,7 @@ cd $HOME/archive/fates_alp1
 ls lnd/hist
 ### the relevant output is in “history” files. These files are located in lnd/hist folder
 
-# 3. Analysing output
+
 ### output from the model run comes in netCDF format, which can be read e.g. by Panoply.
 ### we are interested in how well the different PFTs performed in out simulation.
 ### some relevant output variable to look at are ...
