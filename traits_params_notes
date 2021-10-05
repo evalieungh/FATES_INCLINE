@@ -83,11 +83,17 @@ double fates_leaf_slatop(fates_pft) ;
 ## Suc_pra (5.63*0.463)/100 = 0.0261 m^2/gC,
 ## Ver_off (5.07*0.479)/100 = 0.0243 m^2/gC
 ## Default is = 0.03 m^2/gC
+## NB! I think the SLA measurement was transformed. Need to back-transform
+## first to get the correct values! 
 
 double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
 		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
-## Maybe lower this to e.g. mean Juvenile height from demographic data?
+## Maybe lower this to e.g. mean Juvenile height from measured demography data?
+## Juveniles were not measured. Rather use minimum value:
+## Sib_pro
+## Suc_pra
+## Ver_off
 ## Default = 0.125 m = 125 mm
 
 double fates_recruit_initd(fates_pft) ;
