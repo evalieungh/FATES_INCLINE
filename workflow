@@ -2,25 +2,35 @@
 # Evas workflow for running FATES-CTSM for simulating the INCLINE experiment
 # -----------------------------------------------------------------------------
 
-###
+### using NREC virtual machine
 ### using the EMERALD-FATES-platform (see ...)
 ### look here for code inspiration:
 ### https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
 
 
-# 1. Model and input data
+# 1. Model and input data - OK
 ### install the platform
 git clone https://github.com/NorESMhub/NorESM_LandSites_Platform.git
 
-### import data from shared files.
+### import data from shared files. - OK
 https://zenodo.org/record/4108341/files/inputdata_version2.0.0_ALP1.tar
 #### See all parameters specifying CTSM running options in this appendix:
 #### https://www.cesm.ucar.edu/models/ccsm4.0/ccsm_doc/a4234.html
 
 
 # 2. running a simulation
+
+### apply the settings from the settings_INCLINE file here
+
 ## create new case
 create_newcase --case $HOME/ctsm_cases/fates_alp1 --compset 2000_DATM%1PTGSWP3_CLM50%FATES_SICE_SOCN_MOSART_SGLC_SWAV --res 1x1_ALP1 --machine espresso --run-unsupported
+
+## test ALP1 - case already made
+## Lasse has python script to set up model
+
+## case setup
+cd $HOME/ctsm_cases/fates_alp1
+./case.setup
 
 ## PFT test case
 ## To ensure all our custom PFTS are able to grow in the modelled climate at all,
@@ -29,16 +39,11 @@ create_newcase --case $HOME/ctsm_cases/fates_alp1 --compset 2000_DATM%1PTGSWP3_C
 ## can assess whether plants can potentially exist independent of the impacts
 ## of light competition"
 cd ..?
-./xmlchange fates_use_nocomp=.true.
-
-## case setup
-cd $HOME/ctsm_cases/fates_alp1
-./case.setup
+fates_use_nocomp=.true.
+#add manually in user clm file
 
 ## case build
 ./case.build
-
-### apply the settings from the settings_INCLINE file here?
 
 ## case submit
 ./case.submit
