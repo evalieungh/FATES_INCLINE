@@ -5,6 +5,7 @@
 ### FATES that might be interesting.
 ### parameters copied from the master parameter file,
 ### https://github.om/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
+
 ### Compare parameters to the available measured traits:
 ###  "Plant_Height_m"        # plant maximal height
 ###	 "Wet_Mass_g"            # weight of whole plant (with roots?) before drying
@@ -77,14 +78,13 @@ double fates_leaf_slatop(fates_pft) ;
 		fates_leaf_slatop:units = "m^2/gC" ;
 		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
 ## We have "SLA_cm2_g". Almost directly transferrable?
-## Sib_pro 5.24, Suc_pra 5.63, Ver_off 5.07 in cm^2/g. Converting to m^2/gC
+## Sib_pro 191.12, Suc_pra 292.49, Ver_off 164.52 in cm^2/g. Converting to m^2/gC
 ## by using percent Carbon per species:
-## Sib_pro (5.24*0.456)/100 = 0.0239 m^2/gC,
-## Suc_pra (5.63*0.463)/100 = 0.0261 m^2/gC,
-## Ver_off (5.07*0.479)/100 = 0.0243 m^2/gC
+## Sib_pro (191.12*0.456)/100 = 0.872 m^2/gC,
+## Suc_pra (292.49*0.463)/100 = 1.35 m^2/gC,
+## Ver_off (164.52*0.479)/100 = 0.788 m^2/gC
 ## Default is = 0.03 m^2/gC
-## NB! I think the SLA measurement was transformed. Need to back-transform
-## first to get the correct values! 
+
 
 double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
