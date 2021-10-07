@@ -90,17 +90,17 @@ double fates_recruit_hgt_min(fates_pft) ;
 		fates_recruit_hgt_min:units = "m" ;
 		fates_recruit_hgt_min:long_name = "the minimum height (ie starting height) of a newly recruited plant" ;
 ## Maybe lower this to e.g. mean Juvenile height from measured demography data?
-## Juveniles were not measured. Rather use minimum value:
-## Sib_pro
-## Suc_pra
-## Ver_off
+## Juveniles were not measured. Rather use minimum value of adult plants:
+## Sib_pro 47.53 mm = 0.0475 m
+## Suc_pra 146.2 mm = 0.146 m
+## Ver_off 56.75 mm = 0.0568 m
 ## Default = 0.125 m = 125 mm
 
 double fates_recruit_initd(fates_pft) ;
 		fates_recruit_initd:units = "stems/m2" ;
 		fates_recruit_initd:long_name = "initial seedling density for a cold-start near-bare-ground simulation" ;
 ## Depending on how we do spin-up and proper simulation, maybe this needs
-## to be changed.
+## to be changed? The default seems very small I think.
 ## Default is = 0.2 stems/m2
 
 double fates_seed_alloc(fates_pft) ;
@@ -124,8 +124,8 @@ double fates_seed_suppl(fates_pft) ;
 double fates_hlm_pft_map(fates_hlm_pftno, fates_pft) ;
     fates_hlm_pft_map:units = "area fraction" ;
     fates_hlm_pft_map:long_name = "In fixed biogeog mode, fraction of HLM area associated with each FATES PFT" ;
-## What is HLM? If we can use fixed biogeography mode, then this is probably the
-## place to define how much of each PFT to start with.
+## HLM=Host Land Model. If we can use fixed biogeography mode, then this is
+## the place to define how much of each PFT to start with.
 
 double fates_phen_coldtemp ;
 		fates_phen_coldtemp:units = "degrees C" ;
