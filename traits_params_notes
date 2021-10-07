@@ -1,9 +1,14 @@
 # Measured traits & select parameters from FATES
 # -------------------------------------
 
-### a quick glance at the measured traits and parameters used by
+## To set up FATES for our simulations, we need to create custom Plant Functional
+## Types (PFTs) for our three species: Sibbaldia procumbens, Succisa pratensis,
+## and Veronica officinalis. Use "arctic_c3_grass" as a template and change all
+## parameters we have data for from traits measured in the field.
+
+### This doc is a quick glance at the measured traits and parameters used by
 ### FATES that might be interesting.
-### parameters copied from the master parameter file,
+### Parameters copied from the master parameter file,
 ### https://github.om/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
 
 ### Compare parameters to the available measured traits:
