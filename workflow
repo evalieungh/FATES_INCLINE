@@ -65,24 +65,3 @@ ls lnd/hist
 ### e.g. by Panoply, but also in R (with netcdf4 package) or Python.
 ### we are interested in how well the different PFTs performed in our simulation.
 ### some relevant output variable to look at are ...
-
-## make plots using xarray
-import xarray as xr
-xr.set_options(display_style="html")
-%matplotlib inline
-
-case = 'fates_alp1'    # change case names here
-path = os.path.join(os.getenv('HOME'), 'archive', case, 'lnd', 'hist')
-dset = xr.open_mfdataset(path + '/*.nc', combine='by_coords')    # open_mfdataset to read all the netCDF files available in the history folder. The option combine='by_coords') is used to tell the method open_mfdataset how to combine the different files together
-dset
-
-dset['AREA_TREES'].plot(aspect=3, size=6) # change the variable name in '' to plot different variables!
-
-
-## saving a plot
-import matplotlib.pyplot as plt
-fig = plt.figure(1, figsize=[14,7])
-ax = plt.subplot(1, 1, 1)
-dset['AREA_TREES'].plot(ax=ax)
-ax.set_title(dset['AREA_TREES'].long_name)
-fig.savefig('AREA_TREES.png')
