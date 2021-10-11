@@ -7,6 +7,10 @@ In time, this repository will also contain everything necessary to reproduce the
 
 'change_param_file' will be a script to change parameter files before simulations.
 
-'traits_params_notes' is a notepad to compare model parameters to measured traits.
+'DataPrep.R' is an R script for transforming raw data from the INCLINE project into a table of mean, min, and max values, per measured trait, per species.
+
+'output_plots' is a Python script for reading, looking at and plotting data from model runs.
 
 'settings_INCLINE' will be the settings file used by the NorESM_LandSites_Platform to set up simulations.
+
+'traits_params_notes' is a notepad to compare model parameters to measured traits.

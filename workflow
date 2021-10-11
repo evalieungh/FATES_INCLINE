@@ -48,20 +48,22 @@ fates_use_nocomp=.true.
 
 # 4. Analysing output
 
-## go
+## go to the directory of the case(s)
 cd $HOME/work/fates_alp1
 ls -la
-### bld: contains object and CESM executable (called cesm.exe) for the run configuration
+### bld: contains object and CESM executable (cesm.exe) for the run configuration.
 ### run: used during the run to generate output files, etc.
-### Once the run is terminated, many files are moved from the run folder to the archive folder
+### Once the run is terminated, many files are moved from the run folder
+### to the archive folder.
 
 cd $HOME/archive/fates_alp1
 ls lnd/hist
-### the relevant output is in “history” files. These files are located in lnd/hist folder
+### the relevant output is in “history” files.
+### These files are located in lnd/hist folder.
 
-
-### output from the model run comes in netCDF format, which can be read e.g. by Panoply.
-### we are interested in how well the different PFTs performed in out simulation.
+### output from the model run comes in netCDF format, which can be read
+### e.g. by Panoply, but also in R (with netcdf4 package) or Python.
+### we are interested in how well the different PFTs performed in our simulation.
 ### some relevant output variable to look at are ...
 
 ## make plots using xarray
