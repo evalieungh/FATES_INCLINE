@@ -1,20 +1,59 @@
 
 # Copied from Anne's Jupyterlab tutorial:
 
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 11 11:41:50 2021
+
+@author: evaler
+"""
+
+# Code copied and modified from Anne's Jupyterlab tutorial:
+# https://hexylena.github.io/training-material/topics/climate/tutorials/fates-jupyterlab/tutorial.html
+
+# To use xarray, and download other packages, first install
+# anaconda/miniconda (https://docs.spyder-ide.org/5/faq.html#using-packages-installer)
+
 ## make plots using xarray
+
+# import needed packages/libraries. If it's looking in the wrong directory, navigate to the correct directory in the console using pwd and cd (cd Anaconda3/envs/spyder-env/Lib/site-packages/)
+import dask
+import cftime
+import os
 import xarray as xr
 xr.set_options(display_style="html")
 %matplotlib inline
 
-case = 'fates_alp1'    # change case names here
-path = os.path.join(os.getenv('HOME'), 'archive', case, 'lnd', 'hist')
+# specify the case directory
+folder = 'C:/Users/evaler/OneDrive - Universitetet i Oslo/Eva/PHD/P4ecosystem_dispersal_interactions_feedbacks/Data/platformtest_alp4_august2020'
+case = 'platformtest_alp4_jun2020'    # change case names here
+# path = os.path.join(os.getenv('HOME'), 'archive', case, 'lnd', 'hist')
+path = os.path.join(folder, 'archive', case, 'lnd', 'hist')
 # open_mfdataset to read all the netCDF files available in the history folder.
 # The option combine='by_coords') is used to tell the method open_mfdataset how
 # to combine the different files together
-dset = xr.open_mfdataset(path + '/*.nc', combine='by_coords')
+dset = xr.open_mfdataset(path + '/*.nc', combine='by_coords', decode_times=False)
 dset
 
+# make a test plot
 dset['AREA_TREES'].plot(aspect=3, size=6) # change the variable name in '' to plot different variables!
+
+# plot more variables in the same way
+AREA_PLANT # total area occupied by plants | units: m2
+CANOPY_AREA_BY_AGE # canopy area by age bin | units: m2/m2
+ED_NCOHORTS  # Total number of ED cohorts per site | unitless
+ED_NPATCHES # Total number of ED patches per site | unitless
+ED_balive  # Live biomass | gC_m^2
+ED_biomass # Total biomass | units: gC m-2
+ELAI # exposed one-sided leaf area index | unit m2/m2
+LEAF_HEIGHT_DIST # leaf height distribution | units: m2/m2
+RECRUITMENT # Rate of recruitment by PFT | units: indiv/ha/yr
+SEEDS_IN # Seed Production Rate | units: gC m-2 s-1
+SEEDS_IN_LOCAL_ELEM  # Within Site Seed Production Rate | units: kg m-2 d-1
+SEEDS_IN_EXTERN_ELEM #  External Seed Influx Rate | units: kg m-2 d-1
+SEED_BANK  # Total Seed Mass of all PFTs | units: gC m-2
+SEED_BANK_ELEM # Total Seed Mass of all PFTs | units: kg m-2
+SEED_GERM_ELEM # Seed mass converted into new cohorts | units: kg m-2 d-1
 
 
 ## saving a plot
