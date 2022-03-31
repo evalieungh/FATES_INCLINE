@@ -8,6 +8,8 @@ output_dir="/home/user/NorESM_LandSites_Platform/data/output"
 experimentID="xxxx"
 version="1.0.0"                                    # version of inputdata
 
+out_list="'GPP_SCPF', 'PFTcrownarea'"
+
 ######### SeedClim Sites
 plotlat=(61.0243 60.8231 60.8328 60.9335)
 plotlon=(8.12343 7.27596 7.17561 6.41504)
@@ -55,12 +57,12 @@ then
    sed -i "32s,.*, fsurdat=\'${fsurdat}\'," ./user_nl_clm
    sed -i "33s,.*, fates_paramfile=\'${fates_paramfile}\'," ./user_nl_clm
    sed -i "34s,.*, co2_ppmv=367.0," ./user_nl_clm
-   
-   hist_avgflag_pertape = 'A','A'
-   hist_dov2xy = .true.,.true.
-   hist_fincl2 = 'GPP_SCPF', 'PFTcrownarea',
-   hist_mfilt  = 1,1,
-   hist_nhtfrq = 0,0,
+   sed -i "35s,.*, use_bedrock = .true.," ./user_nl_clm
+   sed -i "36s/.*/ hist_fincl2=${out_list}/" ./user_nl_clm
+  # sed -i "37s/.*/ hist_avgflag_pertape = 'A','A'/" ./user_nl_clm
+  # sed -i "38s/.*/ hist_dov2xy = .true.,.true./" ./user_nl_clm
+  # sed -i "39s/.*/ hist_mfilt  = 1,1,/" ./user_nl_clm
+  # sed -i "40s/.*/ hist_nhtfrq = 0,0,/" ./user_nl_clm
    
    ./case.build     # need to rebuild the case if you change the calendar
 fi
