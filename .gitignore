@@ -6,6 +6,7 @@ data_processed/
 resources/
 results/
 writing/
+src/archive/
 src/.Rdata
 src/.Rhistory
 src/FATES_INCLINE.Rproj
