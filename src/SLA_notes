@@ -1,0 +1,13 @@
+SLA
+
+	double fates_leaf_slamax(fates_pft) ;
+		fates_leaf_slamax:units = "m^2/gC" ;
+		fates_leaf_slamax:long_name = "Maximum Specific Leaf Area (SLA), even if under a dense canopy" ;
+	double fates_leaf_slatop(fates_pft) ;
+		fates_leaf_slatop:units = "m^2/gC" ;
+		fates_leaf_slatop:long_name = "Specific Leaf Area (SLA) at top of canopy, projected area basis" ;
+		
+
+SLAmax = observational constraint on max sla
+
+SLAtop = scale SLA in each level of canopy using exponential function (allometry), recheck value for each layer for slamax (should be a lower value than the max, normally? compare to other PFT values). Not very relevant for grasses, but might make more sense for forbs! 

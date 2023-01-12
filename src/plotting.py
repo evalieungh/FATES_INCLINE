@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 11 11:41:50 2021
+
+@author: evaler
+"""
+
+#######################################
+#       READ NC OUTPUT FILES AND      #
+#       MAKE PLOTS OF VARIABLES       #
+#######################################
+
+
+# Code copied and modified from Anne's Jupyterlab tutorial, plus this web page:
+# http://schubert.atmos.colostate.edu/~cslocum/netcdf_example.html 
+# To use xarray, and download other packages, first install
+# anaconda/miniconda (https://docs.spyder-ide.org/5/faq.html#using-packages-installer)
+
+## make plots using xarray
+
+# import needed packages/libraries. If it's looking in the wrong directory, 
+# navigate to the correct directory in the console using pwd and cd 
+# (cd Anaconda3/envs/spyder-env/Lib/site-packages/)
+import os
+import xarray as xr
+import matplotlib.pyplot as plt
+
+# specify the path to the case directory
+folder = 'C:/Users/evaler/OneDrive - Universitetet i Oslo/Eva/PHD/P4ecosystem_dispersal_interactions_feedbacks/Data/platformtest_alp4_august2020'
+case = 'platformtest_alp4_jun2020'    # change case names here
+# There are >21000 hist files, so use only a subset to avoid computer crash.
+path = os.path.join(folder, 'archive', case, 'lnd', 'hist','subset') 
+# open_mfdataset to read all the netCDF files available in the history folder.
+# The option combine='by_coords') is used to tell the method open_mfdataset how
+# to combine the different files together
+dset = xr.open_mfdataset(path + '/*.nc', combine='by_coords') # slow!
+dset
+# the aug2020 subset data has one value per month
+# from jan 1700 to dec 1791
+
+"""for loop test start"""
+testvars = ['AREA_TREES','ED_biomass','CANOPY_AREA_BY_AGE','LEAF_HEIGHT_DIST']
+
+for x in testvars : dset[x].plot(aspect=3, size=6)
+
+"""test end"""
+
+# 2-dimensional plots with lines over time
+dset['AREA_TREES'].plot(aspect=3, size=6) # total area occupied by woody PFTs | units: m2
+dset['AREA_PLANT'].plot(aspect=3, size=6) # total area occupied by plants | units: m2
+# in my aug 2020 test run, it looks like only one PFT managed to grow 
+# since these two plots are identical!
+dset['ED_balive'].plot(aspect=3, size=6)  # Live biomass | gC_m^2
+dset['ED_biomass'].plot(aspect=3, size=6) # Total biomass | units: gC m-2
+#    cycles with the seasons but increases each year - maybe still in spin-up phase?
+dset['ED_NCOHORTS'].plot(aspect=3, size=6)  # Total number of ED cohorts per site | unitless
+dset['ED_NPATCHES'].plot(aspect=3, size=6) # Total number of ED patches per site | unitless
+dset['ELAI'].plot(aspect=3, size=6) # exposed one-sided leaf area index | unit m2/m2
+dset['SEEDS_IN'].plot(aspect=3, size=6) # Seed Production Rate | units: gC m-2 s-1
+dset['SEEDS_IN_LOCAL_ELEM'].plot(aspect=3, size=6)  # Within Site Seed Production Rate | units: kg m-2 d-1
+dset['SEEDS_IN_EXTERN_ELEM'].plot(aspect=3, size=6) #  External Seed Influx Rate | units: kg m-2 d-1
+dset['SEED_BANK'].plot(aspect=3, size=6)  # Total Seed Mass of all PFTs | units: gC m-2
+dset['SEED_BANK_ELEM'].plot(aspect=3, size=6) # Total Seed Mass of all PFTs | units: kg m-2
+dset['SEED_GERM_ELEM'].plot(aspect=3, size=6) # Seed mass converted into new cohorts | units: kg m-2 d-1
+
+# 3-dimensional plots with age or PFT classes
+dset['CANOPY_AREA_BY_AGE'].plot(aspect=3, size=6) # canopy area by age bin | units: m2/m2
+dset['LEAF_HEIGHT_DIST'].plot(aspect=3, size=6) # leaf height distribution | units: m2/m2
+dset['RECRUITMENT'].plot(aspect=3, size=6) # Rate of recruitment by PFT | units: indiv/ha/yr
+
+
+
+# to save a plot, use this (from Anne's tut)
+p = dset['CANOPY_HEIGHT_DIST'].plot(aspect=3, size=6, col_wrap=1, col='fates_levheight')
+p.fig.savefig('CANOPY_HEIGHT_DIST.png') # where does this save to? 
+
+# another way of saving a plot (from Anne's tut)
+fig = plt.figure(1, figsize=[14,7])
+ax = plt.subplot(1, 1, 1)
+dset['AREA_TREES'].plot(ax=ax)
+ax.set_title(dset['AREA_TREES'].long_name)
+fig.savefig('AREA_TREES.png')
+

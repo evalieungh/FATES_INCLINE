@@ -1,6 +1,8 @@
+.Rproj.user
 archive/
-data/
+data/VCG/
+data/archive/
 data_processed/
-writing/
-results/
 resources/
+results/
+writing/
