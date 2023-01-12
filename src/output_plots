@@ -29,8 +29,10 @@ import matplotlib.pyplot as plt
 # specify the path to the case directory
 folder = 'C:/Users/evaler/OneDrive - Universitetet i Oslo/Eva/PHD/P4ecosystem_dispersal_interactions_feedbacks/Data/platformtest_alp4_august2020'
 case = 'platformtest_alp4_jun2020'    # change case names here
+
 # There are >21000 hist files, so use only a subset to avoid computer crash.
 path = os.path.join(folder, 'archive', case, 'lnd', 'hist','subset')
+
 # open_mfdataset to read all the netCDF files available in the history folder.
 # The option combine='by_coords') is used to tell the method open_mfdataset how
 # to combine the different files together

@@ -48,6 +48,8 @@ fates_use_nocomp=.true.
 
 # 4. Analysing output
 
+cd ~/archive/<casename>/lnd/hist 
+
 ## go to the directory of the case(s)
 cd $HOME/work/fates_alp1
 ls -la

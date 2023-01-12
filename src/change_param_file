@@ -1,0 +1,41 @@
+"""
+A script to change parameter files before simulations
+
+
+FATES default parameter file:
+https://github.com/NGEET/fates/blob/master/parameter_files/fates_params_default.cdl
+
+
+Create three PFTs by copying Arctic C3 grass
+
+Change parameters, for PFTs
+Sibbaldia procumbens, Succisa pratensis, Veronica officinalis
+indexed as 1,2,3 ?
+
+"""
+
+
+
+fates_allom_dbh_maxheight =
+
+fates_leaf_diameter =
+
+fates_recruit_hgt_min = 0.0475, 0.146, 0.0568
+
+fates_leaf_slamax =
+
+fates_leaf_slatop =
+
+fates_recruit_hgt_min =
+
+fates_seed_alloc =
+
+
+
+"""
+Parameters to be varied between cases:
+"""
+
+fates_seed_suppl =
+
+fates_hlm_pft_map =
