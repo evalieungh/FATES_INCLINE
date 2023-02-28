@@ -2,7 +2,7 @@
 archive/
 data/VCG/
 data/archive/
-data_processed/
+data_processed
 resources/
 results/
 writing/
