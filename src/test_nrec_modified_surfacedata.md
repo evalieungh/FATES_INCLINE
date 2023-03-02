@@ -82,4 +82,4 @@ Dump of LSP case variables:
     fates_woody:1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0
 ```
 
-Says it's successful in the GUI, but .case_submit finishes in 12 seconds and creates no log files in the case run directory! No error in the terminal that I can see. Next: Make 100% sure I'm not using the weird grazing branch, and try again. 
+Says it's successful in the GUI, but .case_submit finishes in 12 seconds and creates no log files in the case run directory! No error in the terminal that I can see. Next: Make 100% sure I'm not using the weird grazing branch, and try again. Turns out I was using the grazing branch, if I remember correctly the last change I made broke something. So I need to start over in another branch. 
