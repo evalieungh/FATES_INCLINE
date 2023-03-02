@@ -34,15 +34,11 @@ Set up a simulation for ALP4:
 
 - name: ALP1_cosmo_test_500yr
 - 500 years
-- datm yr start 1914
-- datm yr end 2014
+- datm yr start 1995
+- datm yr end 2018
 - stopn 500
 - stop option nyears
 
-Error after first case submission: "Internal server error" in GUI, in terminal:
-"api_1       |   File "/ctsm-api/./app/schemas/cases.py", line 368, in validate_data_file
-api_1       |     raise ValueError("Data must contain a user_mods/shell_commands file.")
-api_1       | ValueError: Data must contain a user_mods/shell_commands file."
 
 Dump of LSP case variables:
 
