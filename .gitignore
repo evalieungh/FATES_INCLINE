@@ -1,6 +1,8 @@
 .Rproj.user
 archive/
 data/VCG/
+data/LSPv1_default_inputfiles
+data/surfacedata
 data/archive/
 data_processed
 resources/
