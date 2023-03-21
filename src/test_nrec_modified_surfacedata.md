@@ -34,6 +34,8 @@ Set up a test simulation for ALP2:
 
 FAIL. In the GUI the run builds and runs "successfully" but there is no output and no logs in the case run directory. 
 
+I ran a 1-year test with ALP3 with default LSP data, and it ran fine and produced output. So it seems unproblematic to have Hui's modified files in resources/model/components/cdeps/datm/cime_config/. Maybe the problem is the surface data file since the modified-surfacedata-only and COSMO-forcing tests both seemed to fail the same way.
+
 
 ### Second, run a longer test simulation for ALP4
 
