@@ -45,6 +45,13 @@ containing files `shell_commands` and `user_nl_clm`. Trying the same case setup
 again, but manually adding `./xmlchange VCGSITE=ALP1` to the shell commands file before
 clicking "run". 
 
+./xmlquery --listall  lists all variables
+./query_config --compset
+
+restart
+finidat=restart file (can be done in advanced box)
+
+
 The GUI says the run was successful, but again there is no output and no info in the log files, 
 except resources/cases/caseID/archive/logs/cesm.log... which says
 ```
