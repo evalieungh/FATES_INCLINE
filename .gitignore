@@ -6,6 +6,7 @@ data/surfacedata
 data/archive/
 data/ALP4_cosmorea/
 data/ALP4_cosmorea_noleap/
+data/ALP4_cosmorea_gregorian/
 data/ALP4_cosmorea_warmed
 data_processed
 resources/
