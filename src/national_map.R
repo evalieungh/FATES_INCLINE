@@ -25,6 +25,6 @@ ggplot(data = europe) +
 		geom_sf(fill = "darkgrey") + 
 		geom_point(data = alp4_coords, 
 							 aes(x = longitude, y = latitude), 
-							 size = 1, shape = 16, color = "red") +
-		coord_sf(xlim = c(4,31.5), ylim = c(57.5,71))+
+							 size = 1, shape = 19, color = "red") +
+		coord_sf(xlim = c(-5,25), ylim = c(50,65))+
   	xlab('') + ylab('')
