@@ -19,6 +19,9 @@ conda install ipykernel
 conda install matplotlib
 conda install -c conda-forge netCDF4
 conda install -c conda-forge nco
+conda install -c conda-forge dask
+conda install -c conda-forge nc-time-axis
+conda install -c conda-forge scipy
 ```
 
 A dump of the environment (incl. all packages required by the above) with specific versions is stored in a separate text file conda_env.txt. 
