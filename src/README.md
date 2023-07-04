@@ -2,7 +2,7 @@
 
 **under construction**
 
-NB! Several files are heavily inspired, or copied and modified, from other online sources like the NorESM Land Sites Platform, huitang-earth, CTSM tutorials, and other sources. 
+NB! Several files are heavily inspired, or copied and modified, from other online sources like the NorESM Land Sites Platform, github.com/huitang-earth, CTSM tutorials, and other sources. 
 
 This directory contains jupyter notebooks, scripts, and notes used to document workflows, modify atmospheric forcing and surface data, and create plots, amongst other things. 
 
