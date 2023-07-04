@@ -1,6 +1,6 @@
-# Manuscript using CLM-FATES to model INCLINE sites
+# Repository for a manuscript using CLM-FATES to model alpine grasslands under climate warming
 
-More info to come... 
+NB! Under construction. Scripts etc. are not finished and should be considered drafts. More info to come... 
 
 | Folder or file name | Description       |
 | ------------------- | ----------- |
