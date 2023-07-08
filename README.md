@@ -15,7 +15,8 @@ evaleriksen[at]gmail.com
 
 ## Related resources:
 
-- 
+- Lieungh, E. (2023). Simulation output for seven simulations with CLM-FATES in the Land Sites Platform (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.8124988
+
 
 ### Contents
 
