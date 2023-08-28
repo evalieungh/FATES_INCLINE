@@ -1,0 +1,62 @@
+{
+    "1": {
+        "long_name": "Broadleaf evergreen tropical tree",
+        "group": "tree",
+        "colour": "#a6cee3"
+    },
+    "2": {
+        "long_name": "Needleleaf evergreen extratropical tree",
+        "group": "tree",
+        "colour": "#1f78b4"
+    },
+    "3": {
+        "long_name": "Needleleaf cold-deciduous extratropical tree",
+        "group": "tree",
+        "colour": "#b2df8a"
+    },
+    "4": {
+        "long_name": "Broadleaf evergreen extratropical tree",
+        "group": "tree",
+        "colour": "#33a02c"
+    },
+    "5": {
+        "long_name": "Broadleaf hydro-deciduous tropical tree",
+        "group": "tree",
+        "colour": "#fb9a99"
+    },
+    "6": {
+        "long_name": "Broadleaf cold-deciduous extratropical tree",
+        "group": "tree",
+        "colour": "#e31a1c"
+    },
+    "7": {
+        "long_name": "Broadleaf evergreen extratropical shrub",
+        "group": "shrub",
+        "colour": "#fdbf6f"
+    },
+    "8": {
+        "long_name": "Broadleaf hydro-deciduous extratropical shrub",
+        "group": "shrub",
+        "colour": "#ff7f00"
+    },
+    "9": {
+        "long_name": "Broadleaf cold-deciduous extratropical shrub",
+        "group": "shrub",
+        "colour": "#cab2d6"
+    },
+    "10": {
+        "long_name": "Arctic C3 grass",
+        "group": "grass",
+        "colour": "#6a3d9a"
+    },
+    "11": {
+        "long_name": "Cool C3 grass",
+        "group": "grass",
+        "colour": "#ffff99"
+    },
+    "12": {
+        "long_name": "C4 grass",
+        "group": "grass",
+        "colour": "#b15928"
+    }
+}
