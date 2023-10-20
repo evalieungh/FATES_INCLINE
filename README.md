@@ -1,10 +1,10 @@
 # Repository for a manuscript using CLM-FATES to model alpine grasslands under climate warming
 
-This repository contains notebooks and workflow notes for a manuscript in preparation. 
+This repository contains notebooks and workflow notes for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
 
 This readme file was generated on [2023-02-27] by Eva Lieungh
 
-## NB! this is a work in progress. The notebooks are not 100% clean and finished, and results may not be reproducible. Some code and notebooks have been heavily inspired by other sources.
+Some code and notebooks have been heavily inspired by other sources. These are generally mentioned at the start of relevant files.
 
 Contact:
 Eva Lieungh,
@@ -24,14 +24,14 @@ This is the folder structure in my local copy of the directory. Most of these fo
 
 | Folder or file name | Description       |
 | ------------------- | ----------- |
-| data/ | raw and input data |
+| data/ | raw and original input data |
 | data_processed/ | modified data, intermediate files |
-| writing | manuscript drafts and backups |
+| writing | manuscript drafts and text, presentations |
 | results | output files, figures etc. |
 | resources | external resources not to be uploaded (add to .gitignore) |
-| src   | code, notebooks etc for analysis |
+| src   | code, notebooks etc for data handling and analysis |
 | README.md | This file, which creates the repository's basic info on the GitHub page |
-| LICENSE | Specifiec this repo's license. MIT template. |
+| LICENSE | Specifies this repo's license. MIT template. |
 
 ### Funding sources that supported this project
 
@@ -39,7 +39,7 @@ PhD project funded by the Norwegian Ministry of Education and Research, through 
 
 ### Sharing and access
 
-Copy snippets freely, but please refer to this repository if you use large parts of several scripts (that is, if you are doing most of the same analyses and your starting point is a copy of these scripts). See for instance the [ICMJE authorship guidelines (Vancouver convention)](https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html) to help you decide which kind of acknowledgement is appropriate. 
+See the license. Copy and use freely, but please cite this repository if you use large parts of several scripts (that is, if you are doing most of the same analyses and your starting point is a copy of these scripts). See for instance the [ICMJE authorship guidelines (Vancouver convention)](https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html) to help you decide which kind of acknowledgement is appropriate. 
 
 ### Help and useful tricks
 
