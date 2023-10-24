@@ -1,6 +1,6 @@
 # Repository for a manuscript using CLM-FATES to model alpine grasslands under climate warming
 
-This repository contains notebooks and workflow notes for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
+This repository contains data, notebooks, and workflow notes for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
 
 This readme file was generated on [2023-02-27] by Eva Lieungh
 
@@ -40,6 +40,10 @@ PhD project funded by the Norwegian Ministry of Education and Research, through 
 ### Sharing and access
 
 See the license. Copy and use freely, but please cite this repository if you use large parts of several scripts (that is, if you are doing most of the same analyses and your starting point is a copy of these scripts). See for instance the [ICMJE authorship guidelines (Vancouver convention)](https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html) to help you decide which kind of acknowledgement is appropriate. 
+
+### Manuscript data availability
+
+Apart from one data set used in creating “improved” surface data for the simulations, all data sources are openly available and referred to in the manuscript text and reference list. One source, Vandvik et al. (2023; osf.io/zhk3m), is currently restricted but will become publicly available following the publication of a data paper draft in Gya, R. (2022). Disentangling effects and context dependencies of climate change on alpine plants [Doctoral thesis, The University of Bergen]. https://hdl.handle.net/11250/3038854. The derived surface data which incorporates calculated means from these data is available in this repository.
 
 ### Help and useful tricks
 
