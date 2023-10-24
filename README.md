@@ -1,5 +1,7 @@
 # Repository for a manuscript using CLM-FATES to model alpine grasslands under climate warming
 
+[![DOI](https://zenodo.org/badge/267775364.svg)](https://zenodo.org/doi/10.5281/zenodo.10036318)
+
 This repository contains data, notebooks, and workflow notes for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
 
 This readme file was generated on [2023-02-27] by Eva Lieungh
