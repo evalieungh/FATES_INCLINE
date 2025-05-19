@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/267775364.svg)](https://zenodo.org/doi/10.5281/zenodo.10036318)
 
-This repository contains data, notebooks, and workflow notes for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
+This repository contains model input data, workflow notes, and scripts and notebooks for data handling, simulation setup, and result analyses for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
 
 This readme file was generated on [2023-02-27] by Eva Lieungh
 
@@ -18,7 +18,6 @@ evaleriksen[at]gmail.com
 ## Related resources:
 
 - Lieungh, E. (2023). Simulation output for seven simulations with CLM-FATES in the Land Sites Platform (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.8124988
-- [the Land Sites Platform](https://noresmhub.github.io/noresm-land-sites-platform/) software to run CLM/FATES
 
 ### Contents
 
