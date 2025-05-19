@@ -94,7 +94,7 @@ surfdat_16pft = surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_ALP4_c221027
 file = /cluster/home/evaler/fates_incline/inputdata/ALP4-GSWP3/domain.lnd.fv0.9x1.25_gx1v7_ALP4_c221027.nc
 ```
 
-Also check CTSM/bld/namelist_files/namelist_defauls_ctsm.xml. 
+Also check `CTSM/bld/namelist_files/namelist_defauls_ctsm.xml`. 
 The FATES parameter file is set on line 536 (and the CLM parameter file just above on L58). For now I assume that this file is not necessary to change but can be overwritten with namelist changes for specific cases.
 
 ### Changes to enable COSMOREA6
@@ -118,14 +118,16 @@ cp scripts_ctsm_region/atm_forcing/cosmo_rea_6km/ctsm_config_VCG/config_componen
 
 Last, make changes to the stream_definition_datm.xml file for all three COSMOREA variables, to point to a different path than Hui and Elin used. The changes look e.g. like this:
 
+```
   <stream_entry name="COSMOREA.Precip">
     <stream_meshfile>
       <meshfile>none</meshfile>
     </stream_meshfile>
     <stream_datafiles>
       <file first_year="1995" last_year="2018">$CLM_USRDAT_DIR/datmdata/clm1pt_${VCGSITE}_%ym.nc</file>
+```
 
-The VCGSITE variable Elin added is needed to complete the datm data path, which whould look like `$CLM_USRDAT_DIR/datmdata/clm1pt_${VCGSITE}_%ym.nc`
+For the NREC/LSP setup, the VCGSITE variable Elin added was needed to complete the datm data path, which whould look like `$CLM_USRDAT_DIR/datmdata/clm1pt_${VCGSITE}_%ym.nc`. I'm not sure if it is still needed, so let's skip it for now.
 
 The compset for COSMOREA should be `2000_DATM%COSMOREA_CLM51%FATES_SICE_SOCN_MOSART_SGLC_SWAV`
 
@@ -139,7 +141,7 @@ Tried making a simple script, ./create_case_DA-GSWP3.sh. Make it executable with
 
 ```
 cd /cluster/home/evaler/CTSM/cime/scripts/
-./create_case_DA-GSPW3_test.sh
+./cluster/home/evaler/FATES_INCLINE/src/simulation_setup/create_case_DA-GSWP3_test.sh
 ```
 
 Next, run ./case.setup to build the namelist and add namelist changes to the case dir user_nl_clm:
@@ -170,7 +172,7 @@ Then we set some simulation settings. Make a short script, fates_incline/SKJ1PT_
 ```
 chmod +x xmlchange_DA-GSWP3.sh
 cd /cluster/home/evaler/fates_incline/SKJ1PT_DA-GSWP3_test
-./xmlchange_DA-GSWP3.sh
+./cluster/home/evaler/FATES_INCLINE/src/simulation_setup/xmlchange_DA-GSWP3.sh
 ```
 
 Then, build the case so it is ready for running, and run a check to see if there are any issues. If the case has already been built before and you need to change something, run `./case.build --clean` first.
