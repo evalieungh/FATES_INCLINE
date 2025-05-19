@@ -76,3 +76,8 @@ each script was made using `vi scriptname.sh`, pressing i, entering the content,
 
 Find "search phrase" inside any/all files in current directory:
 `grep -r "search phrase"`
+
+Find all files containing a string in the filename:
+```
+find . -name "*log*" -print
+```
