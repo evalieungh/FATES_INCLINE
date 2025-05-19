@@ -198,3 +198,12 @@ cp /cluster/work/users/evaler/noresm/
 mv
 
 ```
+
+--------------------------
+## Useful notes
+
+```
+squeue --me
+scancel <jobID>
+
+```
