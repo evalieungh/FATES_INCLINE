@@ -39,7 +39,6 @@ Site info from the LSP's resources/config/sites.json:
       }
 ```
 
-
 ## Initial set up of model 
 
 Download the Community Terrestrial Systems Model (incl. CLM)
@@ -49,10 +48,13 @@ git clone https://github.com/NorESMhub/CTSM.git
 cd CTSM
 git checkout -b ctsm5.3.11-noresm_v2
 ./bin/git-fleximod update
-
 ```
 
+Possibly load some modules? `module load ESMF/8.6.0-foss-2023a`
+
 ## Download data
+
+Check whether it's possible to re-use the data from the old setup. If not, I have to find forcing for the site and bias-correct before applying forcing again. 
 
 Prepared single-site forcing available on GitHub, modified from the [NorESM-LSP](). All these prepared folders include modified surface data (see [the dataprep_surfacedata notebook](https://github.com/evalieungh/FATES_INCLINE/blob/main/src/data_handling/dataprep_surfacedata.ipynb)). Zipped files are available for GSWP3, COSMO, and COSMO-Warmed under [evalieungh/FATES_INCLINE/main/data/](https://github.com/evalieungh/FATES_INCLINE/tree/main/data).
 
@@ -66,17 +68,15 @@ wget https://raw.githubusercontent.com/evalieungh/FATES_INCLINE/main/data/ALP4.z
 wget https://raw.githubusercontent.com/evalieungh/FATES_INCLINE/main/data/ALP4_cosmorea_noleap.zip
 # COSMO-Warmed
 wget https://raw.githubusercontent.com/evalieungh/FATES_INCLINE/main/data/ALP4_cosmorea_warmed.zip
-
 ```
 
 Unzip the folders into Betzy login node folder fates_incline/ALP4-GSWP3 etc with `unzip`
 
-## Model adjustments to enable custom forcing
+## Model adjustments to enable custom forcing?
 
 ### Changes to manually specify input data location
 
-
-May need additional changes in CTSM//tools/site_and_regional/default_data_2000.cfg.:
+May need additional changes in CTSM/tools/site_and_regional/default_data_2000.cfg.:
 
 ```
 [main]
@@ -97,58 +97,23 @@ file = /cluster/home/evaler/fates_incline/inputdata/ALP4-GSWP3/domain.lnd.fv0.9x
 Also check `CTSM/bld/namelist_files/namelist_defauls_ctsm.xml`. 
 The FATES parameter file is set on line 536 (and the CLM parameter file just above on L58). For now I assume that this file is not necessary to change but can be overwritten with namelist changes for specific cases.
 
-### Changes to enable COSMOREA6
-Some instructions from Hui Tang's repo https://github.com/huitang-earth/scripts_ctsm_region.git. 
-
-To use COSMOREA data, replace the following files with the files provided in "huitang-earth/scripts_ctsm_region/atm_forcing/cosmo_rea_6km/ctsm_config_reg" (works for both regional and any single site simulations). Rename the model defaults to keep them for comparison just in case. 
-
-```
-cd ~
-git clone https://github.com/huitang-earth/scripts_ctsm_region.git
-
-mv CTSM/components/cdeps/datm/cime_config/namelist_definition_datm.xml CTSM/components/cdeps/datm/cime_config/namelist_definition_datm_default.xml
-mv CTSM/components/cdeps/datm/cime_config/stream_definition_datm.xml CTSM/components/cdeps/datm/cime_config/stream_definition_datm_default.xml
-mv CTSM/components/cdeps/datm/cime_config/config_component.xml CTSM/components/cdeps/datm/cime_config/config_component_default.xml
-
-cp scripts_ctsm_region/atm_forcing/cosmo_rea_6km/ctsm_config_VCG/namelist_definition_datm.xml CTSM/components/cdeps/datm/cime_config/namelist_definition_datm.xml
-cp scripts_ctsm_region/atm_forcing/cosmo_rea_6km/ctsm_config_VCG/stream_definition_datm.xml CTSM/components/cdeps/datm/cime_config/stream_definition_datm.xml
-cp scripts_ctsm_region/atm_forcing/cosmo_rea_6km/ctsm_config_VCG/config_component.xml CTSM/components/cdeps/datm/cime_config/config_component.xml
-
-```
-
-Last, make changes to the stream_definition_datm.xml file for all three COSMOREA variables, to point to a different path than Hui and Elin used. The changes look e.g. like this:
-
-```
-  <stream_entry name="COSMOREA.Precip">
-    <stream_meshfile>
-      <meshfile>none</meshfile>
-    </stream_meshfile>
-    <stream_datafiles>
-      <file first_year="1995" last_year="2018">$CLM_USRDAT_DIR/datmdata/clm1pt_${VCGSITE}_%ym.nc</file>
-```
-
-For the NREC/LSP setup, the VCGSITE variable Elin added was needed to complete the datm data path, which whould look like `$CLM_USRDAT_DIR/datmdata/clm1pt_${VCGSITE}_%ym.nc`. I'm not sure if it is still needed, so let's skip it for now.
-
-The compset for COSMOREA should be `2000_DATM%COSMOREA_CLM51%FATES_SICE_SOCN_MOSART_SGLC_SWAV`
-
 ## setting up cases and running the model
 
 Create cases (from ~/fates_incline)
 
- - what to set as CLM_USRDAT= ?
-
-Tried making a simple script, ./create_case_DA-GSWP3.sh. Make it executable with `chmod +x create_case_DA-GSWP3.sh`. 
+Tried making a simple script, ./create_case_DA-GSWP3.sh. Make it executable with `chmod +x <create_case_....sh>`. Next, run ./case.setup to build the namelist
 
 ```
-cd /cluster/home/evaler/CTSM/cime/scripts/
-./cluster/home/evaler/FATES_INCLINE/src/simulation_setup/create_case_DA-GSWP3_test.sh
-```
+cd /cluster/home/evaler/FATES_INCLINE/src/simulation_setup/
+./create_case_DA-GSWP3_test.sh
 
-Next, run ./case.setup to build the namelist and add namelist changes to the case dir user_nl_clm:
-
-```
+cd /cluster/home/evaler/fates_incline/<casename>
 ./case.setup
+```
 
+Then, add these namelist changes to user_nl_clm (inside case directory):
+
+```
 fsurdat = '$CLM_USRDAT_DIR/surfdata_0.9x1.25_hist_16pfts_Irrig_CMIP6_simyr2000_ALP4_c221027.nc'
 
 use_bedrock = .true.
@@ -156,7 +121,6 @@ use_bedrock = .true.
 hist_fincl2 = 'FATES_GPP'
 hist_nhtfrq = 0,-24
 hist_mfilt = 12,30
-
 ```
 
 Also, replace the default user_nl_datm_streams with the one from the (modified) LSP data
@@ -168,7 +132,7 @@ cp /cluster/home/evaler/fates_incline/inputdata/ALP4-GSWP3/user_mods/user_nl_dat
 ```
 
 Then we set some simulation settings. Make a short script, fates_incline/SKJ1PT_DA-GSWP3_PTS/xmlchange_DA-GSWP3.sh, with all the xml changes needed. (Took this one out again because there was an error: `./xmlchange VCGSITE=ALP4`)
-
+ESMFMKFILE
 ```
 chmod +x xmlchange_DA-GSWP3.sh
 cd /cluster/home/evaler/fates_incline/SKJ1PT_DA-GSWP3_test
@@ -180,7 +144,6 @@ Then, build the case so it is ready for running, and run a check to see if there
 ```
 ./case.build
 ./check_case
-
 ```
 Build logs, and output from the simulation, will be placed under /cluster/work/users/evaler/noresm/casename. 
 Go there and check the logs just in case to see that there are no errors. 
