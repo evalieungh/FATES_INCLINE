@@ -16,28 +16,7 @@ The goal is to perform:
 	* COSMO forcing, Grass PFTs - (IG-COSMO)
 	* Warmed COSMO forcing, Grass PFTs, (IG-COSMO-W)
 	
-All simulaitons are single-site, at the Skjellingahaugen site of the Vestland Climate Grid (see e.g. ...)
-
-Site info from the LSP's resources/config/sites.json:
-```
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          6.41504,
-          60.9335
-        ]
-      },
-      "properties": {
-        "name": "ALP4",
-        "long_name": "Skjellingahaugen",
-        "description": "Alpine vegetation at 1088 m elevation. Mean summer temperature is 7 degrees C, and mean annual precipitation is 3402 mm.",
-        "compset": "2000_DATM%GSWP3v1_CLM51%FATES_SICE_SOCN_MOSART_SGLC_SWAV",
-        "res": "1x1_ALP4",
-        "data_url": "https://raw.githubusercontent.com/NorESMhub/noresm-lsp-data/main/sites/ALP4.zip",
-        "group": "SeedClim"
-      }
-```
+All simulaitons are single-site, at the Skjellingahaugen site of the Vestland Climate Grid. This site is also available in the LSP. Skjellingahaugen has coordinates lon 6.41504, lat 60.9335. Alpine vegetation at 1088 m elevation. Mean summer temperature is 7 degrees C, and mean annual precipitation is 3402 mm.
 
 ## Initial set up of model 
 
@@ -46,7 +25,7 @@ Download the Community Terrestrial Systems Model (incl. CLM)
 ```
 git clone https://github.com/NorESMhub/CTSM.git
 cd CTSM
-git checkout -b ctsm5.3.11-noresm_v2
+git checkout tags/ctsm5.3.11-noresm_v2 -b ctsm5.3.11-noresm_v2
 ./bin/git-fleximod update
 ```
 
@@ -54,7 +33,7 @@ Possibly load some modules? `module load ESMF/8.6.0-foss-2023a`
 
 ## Download data
 
-Check whether it's possible to re-use the data from the old setup. If not, I have to find forcing for the site and bias-correct before applying forcing again. 
+Check whether it's possible to re-use the data from the old setup, at least the surface data files. If not, I have to find forcing for the site and bias-correct before applying forcing again. 
 
 Prepared single-site forcing available on GitHub, modified from the [NorESM-LSP](). All these prepared folders include modified surface data (see [the dataprep_surfacedata notebook](https://github.com/evalieungh/FATES_INCLINE/blob/main/src/data_handling/dataprep_surfacedata.ipynb)). Zipped files are available for GSWP3, COSMO, and COSMO-Warmed under [evalieungh/FATES_INCLINE/main/data/](https://github.com/evalieungh/FATES_INCLINE/tree/main/data).
 
@@ -72,11 +51,13 @@ wget https://raw.githubusercontent.com/evalieungh/FATES_INCLINE/main/data/ALP4_c
 
 Unzip the folders into Betzy login node folder fates_incline/ALP4-GSWP3 etc with `unzip`
 
-## Model adjustments to enable custom forcing?
+**ALTERNATIVE** Use new data
+See [notes on forcing data preparation](../data_handling/create_singlepoint_gswp3.md)
+
 
 ### Changes to manually specify input data location
 
-May need additional changes in CTSM/tools/site_and_regional/default_data_2000.cfg.:
+Replace the contents of this file with the code below: CTSM/tools/site_and_regional/default_data_2000.cfg.
 
 ```
 [main]
@@ -99,7 +80,7 @@ The FATES parameter file is set on line 536 (and the CLM parameter file just abo
 
 ## setting up cases and running the model
 
-Create cases (from ~/fates_incline)
+Create cases, which will be placed in ~/fates_incline/casename.
 
 Tried making a simple script, ./create_case_DA-GSWP3.sh. Make it executable with `chmod +x <create_case_....sh>`. Next, run ./case.setup to build the namelist
 
@@ -163,10 +144,17 @@ mv
 ```
 
 --------------------------
-## Useful notes
+
+## Useful commands
 
 ```
+# jobs
 squeue --me
 scancel <jobID>
 
+# model versions/tags
+./bin/git-fleximod status
+
+# data usage
+dusage
 ```

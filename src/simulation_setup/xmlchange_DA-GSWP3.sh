@@ -7,7 +7,7 @@
 ./xmlchange RUN_STARTDATE=2000-01-01,DATM_YR_START=2000,DATM_YR_END=2005
 ./xmlchange DATM_YR_ALIGN=2000
 
-./xmlchange CLM_USRDAT_DIR=/cluster/home/evaler/fates_incline/inputdata/ALP4-GSWP3
+./xmlchange CLM_USRDAT_DIR=/cluster/home/evaler/fates_incline/inputdata/skj_pt_gswp3
 ./xmlchange PTS_LON=6.41504
 ./xmlchange PTS_LAT=60.9335
 ./xmlchange MPILIB=mpi-serial
