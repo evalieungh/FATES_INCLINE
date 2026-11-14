@@ -1,6 +1,6 @@
 # ER, NEE, GPP over the growing season at Skjellingahaugen
 # Controls, inside and outside OTCs
-# 2020 and 2023
+# 2020 and 2022
 
 # Load packages
 
@@ -55,19 +55,20 @@ cflux_2020 <- cflux_2020 |>
         type_b = "ER",
         diff_name = "GPP"
     ) |>
-    select(!c(campaign, replicate, plotID))
+    select(!c(campaign, replicate))
 
 
 
 cflux_2022 <- cflux_2022_og |>
    left_join(metadata) |>
     #   janitor::clean_names() |>
-    select(campaign, PAR_ave, type, f_flux, siteID, OTC, treatment) |>
+    select(campaign, PAR_ave, type, f_flux, siteID, OTC, treatment, plotID, par_correction) |>
       filter(
         campaign != 1 # we exclude campaign 1 as it is very different than the rest of the season (was probably too early?) 
         & siteID == "Skjellingahaugen"
-        & treatment == "C",
-        type != "LRC"
+        & treatment == "C"
+        & type != "LRC"
+        & is.na(par_correction)
       ) |>
     mutate(year = 2022) |>
     select(!campaign)
@@ -88,5 +89,16 @@ cflux_skj <- bind_rows(cflux_2020, cflux_2022) |>
         par_n = sum(!is.na(PAR_ave)),
         par_se = ifelse(par_n > 0, par_sd / sqrt(par_n), NA_real_)
     )
+
+# nb of measurements
+
+bind_rows(cflux_2020, cflux_2022) |>
+    summarise(
+        .by = c("type", "year"),
+        n_OTC = sum(OTC == "W"),
+        n_control = sum(OTC == "C")
+    ) |>
+    View()
+
 
 write_csv(cflux_skj, "data/c-flux/cflux_skj.csv")
