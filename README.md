@@ -11,8 +11,6 @@ Some code and notebooks have been heavily inspired by other sources. These are g
 Contact:
 Eva Lieungh,
 https://orcid.org/0000-0003-4009-944X,
-Natural History Museum, University of Oslo,
-eva.lieungh[at]nhm.uio.no /
 evaleriksen[at]gmail.com
 
 ## Related resources:
