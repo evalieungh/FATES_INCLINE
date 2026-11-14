@@ -8,7 +8,7 @@ Before running more stuff, activate the conda environment in the terminal you ar
 module purge 
 module load Miniforge3/24.1.2-0
 conda init
-conda activate /cluster/projects/nn9774k/conda/evaler/ctsm-env2
+conda activate /cluster/projects/nn9774k/conda/evaler/ctsm-env
 ```
 
 ## 1.2 Define paths to input data files in config file

@@ -1,0 +1,29 @@
+<batch_system MACH="betzy" type="slurm">
+  <batch_submit>sbatch</batch_submit>
+  <submit_args>
+    <argument> --time $JOB_WALLCLOCK_TIME </argument>
+    <argument> --account $PROJECT </argument>
+  </submit_args>
+  <directives>
+    <directive> --ntasks={{ total_tasks }}</directive>
+    <directive> --export=ALL</directive>
+    <directive> --switches=1</directive>
+  </directives>
+  <directives queue = "normal">
+    <directive> --partition=normal</directive>
+  </directives>
+  <directives queue = "devel">
+    <directive> --partition=normal</directive>
+    <directive> --qos=devel</directive>
+  </directives>
+  <directives queue = "preproc">
+    <directive> --partition=preproc</directive>
+    <directive> --mem-per-cpu=1900M</directive>
+    <directive> --cpus-per-task=1</directive>
+  </directives>
+    <queues>
+      <queue walltimedef="00:59:00" walltimemax="96:00:00" nodemin="4" nodemax="1024" default="true">normal</queue>
+      <queue walltimedef="00:20:00"  walltimemax="23:59:00" jobmin="1" jobmax="32" default="true">preproc</queue>
+      <queue walltimedef="00:59:00" walltimemax="00:59:00" nodemin="1" nodemax="4" >devel</queue>
+    </queues>
+</batch_system>

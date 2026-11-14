@@ -12,6 +12,7 @@ conda install -p /cluster/projects/nn9774k/conda/evaler/ctsm-env --file conda_en
 conda install -p /cluster/projects/nn9774k/conda/evaler/ctsm-env nco
 conda install -p /cluster/projects/nn9774k/conda/evaler/ctsm-env netcdf4
 conda install -p /cluster/projects/nn9774k/conda/evaler/ctsm-env netCDF4 
+conda install -p /cluster/projects/nn9774k/conda/evaler/ctsm-env dask
 
 # to activate:
 # conda activate /cluster/projects/nn9774k/conda/evaler/ctsm-env

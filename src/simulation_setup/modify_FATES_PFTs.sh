@@ -35,18 +35,12 @@ echo Set SLA to 0.0376 for all grass PFTs
 --PFT 13 \
 --value 0.0376
 
-./modify_fates_paramfile.py --input ../parameter_files/fates_params_default.nc \
---output ../parameter_files/fates_params_default.nc --overwrite \
---variable fates_leaf_slatop \
---PFT 14 \
---value 0.0376
-
 echo Make new parameter file with grasses only
 
 # Use the IndexSwapper to make a new parameter file with grasses only
 PARAMETERFILE=/cluster/home/evaler/CTSM/src/fates/parameter_files/fates_params_default.nc
 PARAMETERFILE_GRASS=/cluster/home/evaler/CTSM/src/fates/parameter_files/fates_params_grassonly.nc
-GRASSINDICES=12,13,14
+GRASSINDICES=12,13
 
 ./FatesPFTIndexSwapper.py --fin=$PARAMETERFILE \
     --fout=$PARAMETERFILE_GRASS \

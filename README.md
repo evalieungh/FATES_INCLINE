@@ -1,6 +1,6 @@
 # Repository for a manuscript using CLM-FATES to model alpine grasslands under climate warming
 
-[![DOI](https://zenodo.org/badge/267775364.svg)](https://zenodo.org/doi/10.5281/zenodo.10036318)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16959664.svg)](https://doi.org/10.5281/zenodo.16959664)
 
 This repository contains model input data, workflow notes, and scripts and notebooks for data handling, simulation setup, and result analyses for a manuscript titled "Process-based modelling of experimental warming in alpine vegetation". 
 
@@ -17,7 +17,7 @@ evaleriksen[at]gmail.com
 
 ## Related resources:
 
-- Lieungh, E. (2023). Simulation output for seven simulations with CLM-FATES in the Land Sites Platform (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.8124988
+- Lieungh, E., Yilmaz, Y. A., Aas, E. C. R., Keetz, L. T., & Tang, H. (2025). Data for six single-site simulations with CLM-FATES (Version 2) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.16959664
 
 ### Contents
 
@@ -51,3 +51,4 @@ Apart from one data set used in creating “improved” surface data for the sim
 Questions? Contact me, or post an issue in this repository. 
 
 A neat trick to find the answer to questions like "what script creates and saves the important_data.Rds file?" is to open a terminal in the ´/src´ folder and enter this command to search (grep) inside all files (-e) inside that folder and subfolders (-r): ´grep -r -e "important_data.Rds"´
+

@@ -1,0 +1,53 @@
+Read observation data. It looks like this:
+         date  siteID          variable  value
+0  2008-01-02  Alrust       temperature   -5.9
+1  2008-01-02  Alrust       cloud_cover    6.6
+2  2008-01-02  Alrust  rel_air_moisture   87.1
+3  2008-01-02  Alrust              wind    3.6
+4  2008-01-02  Alrust     precipitation    3.8
+['Alrust' 'Arhelleren' 'Fauske' 'Gudmedalen' 'Hogsete' 'Lavisdalen'
+ 'Ovstedalen' 'Rambera' 'Skjelingahaugen' 'Ulvehaugen' 'Veskre'
+ 'Vikesland']
+Subset temperature at Skjellingahaugen. New subset:
+Shape: (5092, 5)
+Data types:
+date                object
+siteID              object
+variable            object
+value              float64
+date_pd     datetime64[ns]
+dtype: object
+         date           siteID     variable  value    date_pd
+0  2008-01-02  Skjelingahaugen  temperature   -5.4 2008-01-02
+1  2008-01-03  Skjelingahaugen  temperature   -2.6 2008-01-03
+2  2008-01-04  Skjelingahaugen  temperature   -3.8 2008-01-04
+3  2008-01-05  Skjelingahaugen  temperature   -2.7 2008-01-05
+4  2008-01-06  Skjelingahaugen  temperature   -1.2 2008-01-06
+------------- observation temperature stats -------------
+Mean temperature: 1.6449725058915947
+Median temperature: 1.1
+Min temperature: -19.7
+Max temperature: 19.4
+Standard deviation: 6.026733498014438
+Quantiles: 1.1
+----------------------------------------------------
+start reading gswp3 data
+it took 91.704 seconds to read the gswp3 data.
+The GSWP3 data frame looks like this after conversion from 3-hourly data to daily means:
+date
+1901-01-01   -8.617344
+1901-01-02   -2.542625
+1901-01-03   -0.930363
+1901-01-04   -2.063984
+1901-01-05   -1.425705
+Freq: D, Name: temperature, dtype: float32
+------------- GSWP3 temperature stats -------------
+Mean temperature: 4.3809032
+Median temperature: 4.135996
+Min temperature: -21.3311
+Max temperature: 23.489052
+Standard deviation: 6.6419477
+Quantiles: 4.135996
+----------------------------------------------------
+-------------- comparison ------------------
+Difference in means =  2.73593073812696
