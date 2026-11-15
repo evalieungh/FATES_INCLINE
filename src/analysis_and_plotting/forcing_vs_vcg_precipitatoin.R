@@ -263,7 +263,6 @@ cat("R-squared:", round(r_squared, 3), "\n")
 
 summary(lm_fit)
 
-
 # scatter plots --------------------------------------------------------
 p2 <- ggplot(
   precip_compare,
@@ -305,6 +304,6 @@ ggsave(
   width = 9.5,
   height = 7,
   units = "cm",
-  dpi = 200
+  dpi = 300
 )
 
