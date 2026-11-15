@@ -4,7 +4,8 @@
 # copied and modified from https://github.com/evalieungh/map_scripts
 # 2023-04-19
 
-library(rnaturalearth) 
+library(rnaturalearth)
+library(rnaturalearthhires)
 library(tidyverse)
 library(ggplot2)
 library(mapdata)
@@ -15,7 +16,7 @@ library(sf)
 alp4_coords <- data.frame(longitude=c(6.41504),latitude=c(60.9335))
 
 # download background map 
-europe <- ne_countries(scale='medium', 
+europe <- ne_countries(scale='large', 
 											 continent = 'Europe', 
 											 returnclass = 'sf')
 
@@ -47,6 +48,58 @@ fig1_map
 
 # save the figure
 ggsave("../results/figures/fig1_map.jpeg",
+       plot = fig1_map,
+       device = "jpeg",
+       width = 500, 
+       height = 750,
+       dpi = "print",
+       units = "px")
+
+########################
+library(sf)
+library(rnaturalearth)
+library(ggplot2)
+
+# Download 1:10 million country boundaries
+europe <- ne_download(
+  scale = 10,
+  type = "countries",
+  category = "cultural",
+  returnclass = "sf"
+)
+
+# Keep European countries
+europe <- europe[europe$CONTINENT == "Europe", ]
+
+# Plot
+fig1_map <- ggplot() +
+  geom_sf(
+    data = europe,
+    fill = "#698B69",
+    colour = "#9BCD9B",
+    linewidth = 0.15
+  ) +
+  geom_point(
+    data = alp4_coords,
+    aes(x = longitude, y = latitude),
+    size = 1,
+    shape = 21,
+    colour = "#FF6347",
+    fill = "white"
+  ) +
+  coord_sf(
+    xlim = c(-6, 23),
+    ylim = c(45, 70)
+  ) +
+  xlab('') + ylab('') +
+  theme_minimal() +
+  theme(
+    axis.text = element_blank()
+  )
+
+fig1_map
+
+ggsave("../../results/figures/fig1_map.jpeg",
        plot = fig1_map,
        device = "jpeg",
        width = 500, 
